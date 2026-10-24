@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ภาพกิจกรรม"
+                android:textColor="#111B29"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Filter Chips -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Active Chip -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip_active"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="8dp"
+                        android:text="ทั้งหมด"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp" />
+
+                    <!-- Inactive Chips -->
+                    <TextView
+                        style="@style/ChipInactiveStyle"
+                        android:text="การเรียน" />
+
+                    <TextView
+                        style="@style/ChipInactiveStyle"
+                        android:text="ค่าย &amp; อบรม" />
+
+                    <TextView
+                        style="@style/ChipInactiveStyle"
+                        android:text="แข่งขัน" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Featured Image Card (CRITICAL ID: activityView) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/activityView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#E6E9FF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_image_placeholder"
+                        app:tint="#2956E4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="ภาพไฮไลต์กิจกรรม"
+                        android:textColor="#2956E4"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="IT Camp 2569 - ค่ายพัฒนาทักษะนักศึกษาใหม่"
+                android:textColor="#111B29"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Grid Section -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:columnCount="2"
+                android:layout_marginHorizontal="-8dp">
+
+                <!-- Grid Item 1 -->
+                <LinearLayout
+                    style="@style/GridItemStyle">
+                    <androidx.cardview.widget.CardView
+                        style="@style/GridCardStyle"
+                        app:cardBackgroundColor="#E6E9FF">
+                        <ImageView style="@style/GridIconStyle" android:src="@drawable/ic_image_placeholder" app:tint="#2956E4"/>
+                    </androidx.cardview.widget.CardView>
+                    <TextView style="@style/GridTitleStyle" android:text="ค่ายพัฒนาทักษะ IT" />
+                    <TextView style="@style/GridSubtitleStyle" android:text="ภาพ: ภาควิชา IT (รอใส่ภาพจริง)" />
+                </LinearLayout>
+
+                <!-- Grid Item 2 -->
+                <LinearLayout
+                    style="@style/GridItemStyle">
+                    <androidx.cardview.widget.CardView
+                        style="@style/GridCardStyle"
+                        app:cardBackgroundColor="#E0F7FA">
+                        <ImageView style="@style/GridIconStyle" android:src="@drawable/ic_image_placeholder" app:tint="#00838F"/>
+                    </androidx.cardview.widget.CardView>
+                    <TextView style="@style/GridTitleStyle" android:text="Open House FITM" />
+                    <TextView style="@style/GridSubtitleStyle" android:text="ภาพ: ภาควิชา IT (รอใส่ภาพจริง)" />
+                </LinearLayout>
+
+                <!-- Add items 3 & 4 similarly... -->
+
+            </GridLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@android:color/white"
+        android:elevation="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- 1. เมนู หน้าแรก (Inactive) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"
+                app:tint="#808489" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="หน้าแรก"
+                android:textColor="#808489"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 2. เมนู หลักสูตร (Inactive) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_book"
+                app:tint="#808489" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="หลักสูตร"
+                android:textColor="#808489"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 3. เมนู กิจกรรม (Active) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- ใส่พื้นหลังวงรีแนวนอนเฉพาะตรงไอคอน -->
+            <FrameLayout
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_bottom_nav_active">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_image_placeholder"
+                    app:tint="#2956E4" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="กิจกรรม"
+                android:textColor="#2956E4"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 4. เมนู ติดต่อ (Inactive) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_phone"
+                app:tint="#808489" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="ติดต่อ"
+                android:textColor="#808489"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

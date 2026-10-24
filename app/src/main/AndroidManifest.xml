@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitmApp">
         <activity
+            android:name=".FullScreenGallery"
+            android:exported="false" />
+        <activity
+            android:name=".Gallery"
+            android:exported="false" />
+        <activity
+            android:name=".Careers"
+            android:exported="false" />
+        <activity
+            android:name=".Learn"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
