@@ -1,19 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#0F1424">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <!-- 1. ปุ่มปิด (X) มุมซ้ายบน -->
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/closebutton"
+        android:padding="10dp"
+        app:tint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 2. ตัวเลขแสดงลำดับรูป (2 / 12) มุมขวาบน -->
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="2 / 12"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btnClose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnClose" />
+
+    <!-- 3. ส่วนตรงกลาง: ไอคอนและข้อความตัวอย่างรูปภาพ -->
+    <LinearLayout
+        android:id="@+id/layoutCenterPlaceholder"
+        android:layout_width="410dp"
+        android:layout_height="380dp"
+        android:background="#1B2340"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottomContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnClose">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/image"
+            app:tint="#637394" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ภาพกิจกรรม (เต็มจอ)"
+            android:textColor="#637394"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- 4. ส่วนรายละเอียดเนื้อหาด้านล่าง -->
+    <LinearLayout
+        android:id="@+id/layoutBottomContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- แท็กหมวดหมู่ -->
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="แนะแนว"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <!-- หัวข้อกิจกรรม -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Open House FITM"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- รายละเอียดกิจกรรม -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4dp"
+            android:text="นักศึกษาภาควิชา IT แนะนำหลักสูตรและพาน้อง ๆ\nทดลองเขียนโปรแกรมในห้องปฏิบัติการ"
+            android:textColor="#B0B8C8"
+            android:textSize="14sp" />
+
+        <!-- ที่มาของภาพ -->
+        <TextView
+            android:id="@+id/tvSource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="ที่มาภาพ: เพจภาควิชาเทคโนโลยีสารสนเทศ FITM (รอใส่ลิงก์จริง)"
+            android:textColor="#525D73"
+            android:textSize="12sp" />
+
+        <!-- จุดบอกตำแหน่งรูปภาพ (Page Indicator) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot_inactive" />
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot_active" />
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot_inactive" />
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot_inactive" />
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_dot_inactive" />
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:background="@drawable/bg_dot_inactive" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
