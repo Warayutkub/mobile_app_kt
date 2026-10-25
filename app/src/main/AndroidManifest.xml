@@ -11,18 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitmApp">
+        
+        <activity
+            android:name=".FullScreenGallery"
+            android:exported="false" />
+        <activity
+            android:name=".Gallery"
+            android:exported="false" />
+        <activity
+            android:name=".Careers"
+            android:exported="false" />
+        <activity
+            android:name=".Learn"
+            android:exported="false" />
         <activity
             android:name=".About"
             android:exported="false" />
         <activity
             android:name=".Contact"
             android:exported="false" />
+            
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
