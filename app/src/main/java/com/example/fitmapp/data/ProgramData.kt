@@ -48,6 +48,7 @@ data class Program(
 object ProgramData {
 
     const val APPLY_URL = "https://stdadmis2.kmutnb.ac.th/ApplyStart"
+    const val OPEN_HOUSE_URL = "https://sites.google.com/fitm.kmutnb.ac.th/fitmopenhouse"
 
     val it67Terms = listOf(
         Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(

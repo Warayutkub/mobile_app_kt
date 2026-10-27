@@ -29,7 +29,7 @@ class Contact : AppCompatActivity() {
         findViewById<View>(R.id.btnCall).setOnClickListener { open(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$HOTLINE"))) }
         findViewById<View>(R.id.btnWebIT).setOnClickListener { Screens.openUrl(this, IT_SITE_URL) }
         findViewById<View>(R.id.btnWebFaculty).setOnClickListener { Screens.openUrl(this, FACULTY_URL) }
-        findViewById<View>(R.id.btnApply).setOnClickListener { Screens.openUrl(this, ProgramData.APPLY_URL) }
+        findViewById<View>(R.id.btnApply).setOnClickListener { Screens.openUrl(this, ProgramData.OPEN_HOUSE_URL) }
     }
 
     private fun open(intent: Intent) {
