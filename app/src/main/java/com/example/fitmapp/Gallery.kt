@@ -22,14 +22,26 @@ class Gallery : AppCompatActivity() {
         val activityView = findViewById<CardView>(R.id.activityView)
         BottomNav.setupStatic(this, findViewById(R.id.bottomNavigation), Tab.GALLERY)
 
-        activityView.setOnClickListener { openViewer() }
+        activityView.setOnClickListener { openViewer(photos[0]) }
         findGrid(findViewById(android.R.id.content))?.let { grid ->
-            for (i in 0 until grid.childCount) grid.getChildAt(i).setOnClickListener { openViewer() }
+            for (i in 0 until grid.childCount) {
+                val photo = photos.getOrNull(i + 1) ?: continue
+                grid.getChildAt(i).setOnClickListener { openViewer(photo) }
+            }
         }
     }
 
-    private fun openViewer() {
-        startActivity(Intent(this, FullScreenGallery::class.java))
+    private val photos = listOf(
+        GalleryPhoto("ค่าย & อบรม", "IT Camp 2569", "ค่ายพัฒนาทักษะนักศึกษาใหม่ของภาควิชาเทคโนโลยีสารสนเทศ"),
+        GalleryPhoto("ค่าย & อบรม", "ค่ายพัฒนาทักษะ IT", "กิจกรรมฝึกทักษะด้านเทคโนโลยีสารสนเทศให้นักศึกษา"),
+        GalleryPhoto("แนะแนว", "Open House FITM", "นักศึกษาภาควิชา IT แนะนำหลักสูตรและพาน้อง ๆ ทดลองเขียนโปรแกรมในห้องปฏิบัติการ")
+    )
+
+    private fun openViewer(photo: GalleryPhoto) {
+        startActivity(Intent(this, FullScreenGallery::class.java)
+            .putExtra(FullScreenGallery.EXTRA_CATEGORY, photo.category)
+            .putExtra(FullScreenGallery.EXTRA_TITLE, photo.title)
+            .putExtra(FullScreenGallery.EXTRA_DESCRIPTION, photo.description))
     }
 
     private fun findGrid(view: View): GridLayout? {
@@ -38,3 +50,5 @@ class Gallery : AppCompatActivity() {
         return null
     }
 }
+
+data class GalleryPhoto(val category: String, val title: String, val description: String)

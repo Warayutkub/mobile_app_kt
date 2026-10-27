@@ -3,9 +3,11 @@ package com.example.fitmapp
 
 import android.os.Bundle
 import android.view.View
+import android.widget.HorizontalScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitmapp.data.ProgramRepository
+import com.example.fitmapp.ui.Screens
 import com.example.fitmapp.ui.keepClearOfSystemBars
 import com.example.fitmapp.ui.withComma
 import com.google.android.material.chip.ChipGroup
@@ -55,7 +57,17 @@ class N_08_Fees : AppCompatActivity() {
                 updateFeeInfo(selectedId)
             }
         }
+        if (savedInstanceState == null) selectProgram(intent.getStringExtra(Screens.EXTRA_PROGRAM_ID))
         updateFeeInfo(chipGroupPrograms.checkedChipId)
+    }
+
+    private fun selectProgram(programId: String?) {
+        val chipId = chipProgram.entries.firstOrNull { it.value == programId }?.key ?: return
+        chipGroupPrograms.check(chipId)
+        chipGroupPrograms.post {
+            val chip = findViewById<View>(chipId)
+            (chipGroupPrograms.parent as? HorizontalScrollView)?.smoothScrollTo(chip.left, 0)
+        }
     }
 
     private fun updateFeeInfo(chipId: Int) {
