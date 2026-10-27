@@ -17,19 +17,6 @@
         app:tint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-    <!-- 2. ตัวเลขแสดงลำดับรูป (2 / 12) มุมขวาบน -->
-    <TextView
-        android:id="@+id/tvCounter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="2 / 12"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/btnClose"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnClose"/>
     <!-- 3. ส่วนตรงกลาง: ไอคอนและข้อความตัวอย่างรูปภาพ -->
     <LinearLayout
         android:id="@+id/layoutCenterPlaceholder"
@@ -110,43 +97,6 @@
             android:text="ที่มาภาพ: เพจภาควิชาเทคโนโลยีสารสนเทศ FITM (รอใส่ลิงก์จริง)"
             android:textColor="#525D73"
             android:textSize="12sp"/>
-        <!-- จุดบอกตำแหน่งรูปภาพ (Page Indicator) -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_dot_inactive"/>
-            <View
-                android:layout_width="24dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_dot_active"/>
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_dot_inactive"/>
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_dot_inactive"/>
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/bg_dot_inactive"/>
-            <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:background="@drawable/bg_dot_inactive"/>
-        </LinearLayout>
     </LinearLayout>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideSplit"
