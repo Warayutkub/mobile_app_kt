@@ -31,14 +31,14 @@ object Screens {
 
     private const val PACKAGE = "com.example.fitmapp"
 
-    fun open(activity: Activity, screen: String, programId: String? = null) {
+    fun open(activity: Activity, screen: String, programId: String? = null, flags: Int = 0) {
         val target = try {
             Class.forName("$PACKAGE.$screen")
         } catch (e: ClassNotFoundException) {
             Toast.makeText(activity, "หน้านี้กำลังพัฒนา", Toast.LENGTH_SHORT).show()
             return
         }
-        val intent = Intent(activity, target)
+        val intent = Intent(activity, target).addFlags(flags)
         if (programId != null) intent.putExtra(EXTRA_PROGRAM_ID, programId)
         try {
             activity.startActivity(intent)

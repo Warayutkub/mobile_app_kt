@@ -33,3 +33,16 @@ fun AppCompatActivity.applySystemBars(root: View, topView: View, lightStatusBar:
         insets
     }
 }
+
+/**
+ * สำหรับหน้าที่ layout ไม่ได้เว้นที่ให้แถบระบบ: เว้นขอบทั้งหน้าเท่า status bar / navigation bar
+ * (targetSdk 35+ แอปถูกวาดเต็มจอเสมอ ถ้าไม่เว้น แถบเมนูล่างจะซ้อนใต้แถบปัดกลับหน้าโฮม แล้วกดไม่ติด)
+ * เรียกหลัง setContentView ไม่ต้องแก้ XML
+ */
+fun AppCompatActivity.keepClearOfSystemBars() {
+    ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
+        val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+        insets
+    }
+}

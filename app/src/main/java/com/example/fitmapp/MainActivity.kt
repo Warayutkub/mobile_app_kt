@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val root = findViewById<View>(R.id.main)
         applySystemBars(root, root, lightStatusBar = true)
 
-        // หมุนจอแล้วไม่เริ่มนับเวลาใหม่
         startedAt = savedInstanceState?.getLong(KEY_STARTED_AT) ?: SystemClock.elapsedRealtime()
         root.setOnClickListener { openHome() }
     }

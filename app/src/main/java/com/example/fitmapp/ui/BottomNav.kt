@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -52,6 +53,18 @@ object BottomNav {
         }
     }
 
+    /**
+     * แถบเมนูล่างที่วาดเองใน layout (หน้า Contact / Gallery ของเพื่อน): LinearLayout ที่มีลูก 4 ช่อง
+     * เรียงตาม หน้าแรก / หลักสูตร / กิจกรรม / ติดต่อ — ผูกการกดอย่างเดียว ไม่เปลี่ยนหน้าตา
+     */
+    fun setupStatic(activity: Activity, container: ViewGroup, current: Tab) {
+        val order = listOf(Tab.HOME, Tab.PROGRAMS, Tab.GALLERY, Tab.CONTACT)
+        for (i in 0 until minOf(container.childCount, order.size)) {
+            val tab = order[i]
+            container.getChildAt(i).setOnClickListener { if (tab != current) go(activity, tab) }
+        }
+    }
+
     private fun go(activity: Activity, tab: Tab) {
         when (tab) {
             Tab.HOME -> activity.startActivity(
@@ -62,8 +75,9 @@ object BottomNav {
                 Intent(activity, ProgramsActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
             )
-            Tab.GALLERY -> Screens.open(activity, Screens.GALLERY)
-            Tab.CONTACT -> Screens.open(activity, Screens.CONTACT)
+            // แท็บหลักเปิดซ้ำไม่ซ้อนกันในประวัติ (กด Back แล้วไม่ต้องย้อนหลายรอบ)
+            Tab.GALLERY -> Screens.open(activity, Screens.GALLERY, flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            Tab.CONTACT -> Screens.open(activity, Screens.CONTACT, flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
         }
     }
 }
