@@ -45,7 +45,7 @@
         android:clipToPadding="false"
         android:horizontalSpacing="@dimen/space_xs"
         android:listSelector="@android:color/transparent"
-        android:numColumns="1"
+        android:numColumns="@integer/program_columns"
         android:paddingHorizontal="20dp"
         android:paddingTop="@dimen/space_md"
         android:paddingBottom="@dimen/space_xl"
