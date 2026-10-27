@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 05 Subjects — แนวนอน: เลือกภาค/สรุปซ้าย · รายการวิชาขวา -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".SubjectsActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/view_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMenu"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <LinearLayout
+                android:id="@+id/subjectsTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/space_2xl"
+                android:paddingTop="@dimen/space_sm"
+                android:paddingEnd="@dimen/space_base"
+                android:paddingBottom="@dimen/space_base">
+
+                <TextView
+                    android:id="@+id/subjectsProgram"
+                    style="@style/Text.CaptionStrong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_round_full"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp" />
+
+                <include
+                    layout="@layout/view_term_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_base" />
+
+                <include
+                    layout="@layout/view_subjects_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_base" />
+
+                <TextView
+                    android:id="@+id/subjectsSource"
+                    style="@style/Text.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:text="@string/subjects_source"
+                    android:textColor="@color/subtle" />
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <ListView
+                android:id="@+id/subjectList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:listSelector="@android:color/transparent"
+                android:paddingStart="@dimen/space_sm"
+                android:paddingTop="@dimen/space_xs"
+                android:paddingEnd="28dp"
+                android:paddingBottom="@dimen/space_base" />
+
+            <TextView
+                android:id="@+id/subjectEmpty"
+                style="@style/Text.BodySm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="@dimen/space_2xl"
+                android:text="ยังไม่มีข้อมูลรายวิชาของหลักสูตรนี้\nรอเติมจากเล่มหลักสูตร"
+                android:textColor="@color/muted" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/bottomMenu"
+        layout="@layout/view_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

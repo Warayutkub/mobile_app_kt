@@ -2,4 +2,41 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Foundations จาก Figma "mobile-fitm" -->
+    <color name="primary_900">#0B1F4D</color>
+    <color name="primary_700">#1736A6</color>
+    <color name="primary">#1E47D9</color>
+    <color name="primary_500">#2F5BFF</color>
+    <color name="primary_200">#C3D1FF</color>
+    <color name="primary_100">#E1E8FF</color>
+    <color name="primary_50">#F1F4FF</color>
+    <color name="accent">#00C2FF</color>
+    <color name="accent_100">#DBF6FF</color>
+    <color name="accent_text">#0077A8</color>
+    <color name="ine">#7C4DFF</color>
+    <color name="ine_100">#EEE8FF</color>
+    <color name="ind">#00A68A</color>
+    <color name="ind_100">#DDF5EF</color>
+    <color name="highlight">#FFB020</color>
+    <color name="highlight_100">#FFF3D6</color>
+    <color name="highlight_text">#7A4E00</color>
+    <color name="success">#12A150</color>
+
+    <color name="bg">#F5F7FB</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text">#0F172A</color>
+    <color name="muted">#5A6478</color>
+    <color name="subtle">#8A93A6</color>
+    <color name="border">#E2E7F0</color>
+    <color name="chip_neutral">#E9EDF5</color>
+
+    <!-- ขาวโปร่ง บนพื้นน้ำเงิน -->
+    <color name="on_primary_80">#CCFFFFFF</color>
+    <color name="on_primary_70">#B3FFFFFF</color>
+    <color name="on_primary_15">#26FFFFFF</color>
+    <color name="on_primary_12">#1FFFFFFF</color>
+
+    <!-- วงแหวนตกแต่งหน้า Splash (น้ำเงินจาง 8%) -->
+    <color name="ring">#141E47D9</color>
 </resources>

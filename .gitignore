@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# wara-bridge code graph (generated, rebuilt from source)
+/.wara/

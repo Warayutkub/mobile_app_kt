@@ -1,109 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 01 Splash (Figma, แบบ A) — แนวตั้ง: พื้นขาว โลโก้ FITM 30 ปีตรงกลาง -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#1E47D9"
-    >
+    android:background="@color/surface"
+    tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageViewRing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="528dp"
-        android:src="@drawable/ring"
+    <!-- วงแหวนตกแต่ง ล้นขอบจอเล็กน้อยตาม Figma -->
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_ring"
+        android:translationX="-120dp"
+        android:translationY="-90dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewRing2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="248dp"
-        android:layout_marginBottom="536dp"
-        android:src="@drawable/ring"
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:background="@drawable/bg_ring"
+        android:translationX="98dp"
+        android:translationY="-15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="420dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="FITM"
-        android:textColor="@color/white"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:text="ภาควิชาเทคโนโลยีสารสนเทศ"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:text="“พัฒนาคน เพื่อพัฒนาเทคโนโลยีสารสนเทศ”"
-        android:textColor="#B3B3B3"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
-
-        />
 
     <LinearLayout
+        android:id="@+id/splashTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957"
-        tools:layout_editor_absoluteX="0dp">
+        android:padding="@dimen/space_2xl"
+        app:layout_constraintBottom_toTopOf="@+id/splashFooter"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:contentDescription="โลโก้ FITM ครบรอบ 30 ปี"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fitm_logo_30" />
 
         <TextView
+            style="@style/Text.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="คณะเทคโนโลยีและการจัดการอุตสาหกรรม"
-            android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:layout_marginTop="@dimen/space_lg"
+            android:text="ภาควิชาเทคโนโลยีสารสนเทศ" />
 
         <TextView
+            style="@style/Text.BodySm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี"
-            android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:layout_marginTop="@dimen/space_lg"
+            android:gravity="center"
+            android:text="“พัฒนาคน เพื่อพัฒนาเทคโนโลยีสารสนเทศ”"
+            android:textColor="@color/muted" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/splashFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/space_2xl"
+        android:paddingBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include layout="@layout/view_loading_dots" />
+
+        <TextView
+            style="@style/Text.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_base"
+            android:gravity="center"
+            android:text="คณะเทคโนโลยีและการจัดการอุตสาหกรรม\nมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

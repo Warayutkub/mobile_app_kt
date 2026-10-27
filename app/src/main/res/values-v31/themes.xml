@@ -1,0 +1,7 @@
+<resources>
+    <!-- Android 12+ แสดง splash ของระบบก่อนเปิดแอปเสมอ: พื้นขาว + โลโก้ FITM เหมือนหน้า 01 Splash -->
+    <style name="Theme.FitmApp" parent="Base.Theme.FitmApp">
+        <item name="android:windowSplashScreenBackground">@color/surface</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+    </style>
+</resources>

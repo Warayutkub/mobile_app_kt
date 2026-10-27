@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitmApp">
         <activity
-            android:name=".home"
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgramsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgramDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SubjectsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

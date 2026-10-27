@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- จำนวนวิชา/หน่วยกิตของภาคที่เลือก + คำอธิบายป้าย EN -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/subjectsCount"
+        style="@style/Text.Label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <TextView
+        style="@style/Text.CaptionStrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_full"
+        android:backgroundTint="@color/accent_100"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="2dp"
+        android:text="EN"
+        android:textColor="@color/accent_text" />
+
+    <TextView
+        style="@style/Text.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="สอนเป็นภาษาอังกฤษ" />
+</LinearLayout>

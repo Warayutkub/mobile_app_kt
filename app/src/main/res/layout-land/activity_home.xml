@@ -1,6 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 02 Home — แนวนอน: หัวข้อซ้าย/สถิติขวา · การ์ดหลักสูตรซ้าย/เมนูขวา -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMenu"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/space_xl">
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/space_2xl"
+                android:paddingTop="@dimen/space_sm"
+                android:paddingBottom="@dimen/space_xl">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/view_home_brand" />
+
+                    <TextView
+                        style="@style/Text.H1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        android:text="ค้นหาเส้นทางสาย IT ที่ใช่สำหรับคุณ"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        style="@style/Text.BodySm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_xs"
+                        android:text="3 หลักสูตร 5 แผนการเรียน จากภาควิชาเทคโนโลยีสารสนเทศ มจพ. ปราจีนบุรี"
+                        android:textColor="@color/on_primary_80" />
+                </LinearLayout>
+
+                <include
+                    layout="@layout/view_home_stats"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_2xl"
+                    android:layout_weight="0.8" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xl"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/space_xl">
+
+                <!-- ซ้าย: หลักสูตรของเรา -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="@dimen/space_sm">
+
+                        <TextView
+                            style="@style/Text.H2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="หลักสูตรของเรา" />
+
+                        <TextView
+                            android:id="@+id/seeAllPrograms"
+                            style="@style/Text.Label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:padding="@dimen/space_xs"
+                            android:text="ดูทั้งหมด"
+                            android:textColor="@color/primary" />
+                    </LinearLayout>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/featureList"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <!-- ขวา: สำรวจภาควิชา -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_xl"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Text.H2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/space_sm"
+                        android:paddingVertical="@dimen/space_xs"
+                        android:text="สำรวจภาควิชา" />
+
+                    <include
+                        layout="@layout/view_home_tiles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_sm" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/Text.H2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xl"
+                android:paddingHorizontal="@dimen/space_2xl"
+                android:text="จุดเด่นของภาควิชา" />
+
+            <include
+                layout="@layout/view_home_highlights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_xl"
+                android:layout_marginTop="@dimen/space_sm" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottomMenu"
+        layout="@layout/view_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 03 Programs (Figma) — แนวตั้ง: การ์ด 1 คอลัมน์ -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".ProgramsActivity">
+
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/view_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/programsTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/screen_padding"
+        android:paddingTop="@dimen/space_xs"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <TextView
+            style="@style/Text.BodySm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ภาควิชามี 3 หลักสูตร รวม 5 แผนการเรียน เลือกดูตามวุฒิที่คุณมี"
+            android:textColor="@color/muted" />
+
+        <include
+            layout="@layout/view_program_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_base" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/programList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:horizontalSpacing="@dimen/space_xs"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="1"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="@dimen/space_md"
+        android:paddingBottom="@dimen/space_xl"
+        android:scrollbarStyle="outsideOverlay"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/space_xs"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMenu"
+        app:layout_constraintTop_toBottomOf="@+id/programsTop" />
+
+    <include
+        android:id="@+id/bottomMenu"
+        layout="@layout/view_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

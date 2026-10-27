@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- spacing (4/8 grid จาก Figma) -->
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_base">16dp</dimen>
+    <dimen name="space_lg">20dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_2xl">32dp</dimen>
+    <dimen name="screen_padding">24dp</dimen>
+
+    <!-- radius -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_tile">14dp</dimen>
+    <dimen name="radius_card">16dp</dimen>
+    <dimen name="radius_hero">20dp</dimen>
+    <dimen name="radius_header">28dp</dimen>
+
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="app_bar_height">64dp</dimen>
+    <dimen name="feature_card_width">248dp</dimen>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- โลโก้เล็ก + IT · FITM KMUTNB บนหัวหน้า Home -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <!-- โลโก้ FITM 30 ปีบนกรอบขาว (โลโก้สีน้ำเงิน วางบนพื้นน้ำเงินตรงๆ จะกลืน) -->
+    <FrameLayout
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_round_10"
+        android:backgroundTint="@color/white"
+        android:padding="3dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="โลโก้ FITM"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fitm_logo_30" />
+    </FrameLayout>
+
+    <TextView
+        style="@style/Text.CaptionStrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_sm"
+        android:text="IT · FITM KMUTNB"
+        android:textColor="@color/white" />
+</LinearLayout>
