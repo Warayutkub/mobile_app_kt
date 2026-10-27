@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/detailHero"
     android:layout_width="match_parent"
-    android:layout_height="168dp"
+    android:layout_height="wrap_content"
+    android:minHeight="168dp"
     android:background="@drawable/bg_round_20"
     android:backgroundTint="@color/primary_100"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:clipToOutline="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/detailHeroIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_image"
+            app:tint="@color/primary" />
+
+        <TextView
+            android:id="@+id/detailHeroLabel"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="ภาพบรรยากาศการเรียน"
+            android:textColor="@color/primary" />
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/detailHeroIcon"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_image"
-        app:tint="@color/primary" />
-
-    <TextView
-        android:id="@+id/detailHeroLabel"
-        style="@style/Text.Caption"
-        android:layout_width="wrap_content"
+        android:id="@+id/detailHeroPhoto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="ภาพบรรยากาศการเรียน"
-        android:textColor="@color/primary" />
-</LinearLayout>
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+</FrameLayout>

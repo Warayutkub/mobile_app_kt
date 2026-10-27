@@ -23,6 +23,13 @@ class ProgramDetailActivity : AppCompatActivity() {
 
     private val structureColors = listOf(R.color.accent, R.color.primary, R.color.highlight)
     private val planIcons = listOf(R.drawable.ic_ui_code, R.drawable.ic_ui_briefcase)
+    private val posters = mapOf(
+        "bsc_it_4y" to R.drawable.poster_bsc_it_4y,
+        "bsc_it_transfer" to R.drawable.poster_bsc_it_transfer,
+        "beng_ine_4y" to R.drawable.poster_beng_ine_4y,
+        "beng_ine_transfer" to R.drawable.poster_beng_ine_transfer,
+        "bind_it_2y" to R.drawable.poster_bind_it_2y
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +54,12 @@ class ProgramDetailActivity : AppCompatActivity() {
         findViewById<View>(R.id.detailHero).tintBackground(program.tone.tint)
         findViewById<ImageView>(R.id.detailHeroIcon).setColorFilter(getColor(program.tone.color))
         findViewById<TextView>(R.id.detailHeroLabel).setTextColor(getColor(program.tone.color))
+        posters[program.id]?.let { poster ->
+            findViewById<ImageView>(R.id.detailHeroPhoto).apply {
+                setImageResource(poster)
+                visibility = View.VISIBLE
+            }
+        }
 
         findViewById<TextView>(R.id.detailDegree).apply {
             text = program.degree
