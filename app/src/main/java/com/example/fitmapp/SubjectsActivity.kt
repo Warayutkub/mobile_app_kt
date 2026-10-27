@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitmapp.data.Course
@@ -99,12 +98,10 @@ class SubjectsActivity : AppCompatActivity() {
             if (term == null) "ยังไม่มีข้อมูล" else "${term.courses.size} วิชา · ${term.totalCredits} หน่วยกิต"
     }
 
-    /**
-     * กดวิชาแล้วเปิดรายละเอียด (หน้า 06 Subject Dialog — เพื่อนในกลุ่มทำ)
-     * ตอนรวมงาน: เปลี่ยนบรรทัด Toast เป็นการเปิด dialog ของเพื่อน โดยส่ง course (และ program) ไปให้
-     */
+    /** กดวิชาแล้วเปิดรายละเอียด (หน้า 06 Subject Dialog) */
     private fun showCourseDetail(course: Course) {
-        Toast.makeText(this, "${course.code} ${course.nameTh}", Toast.LENGTH_SHORT).show()
+        val termTitle = program.terms.getOrNull(spinner.selectedItemPosition)?.title ?: ""
+        SubjectDialog.show(this, course, termTitle, ProgramRepository.courseName(program.id, course.prerequisite))
     }
 
     private companion object {

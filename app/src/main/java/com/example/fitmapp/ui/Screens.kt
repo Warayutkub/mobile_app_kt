@@ -25,9 +25,9 @@ object Screens {
     const val GALLERY = "Gallery"
     const val CONTACT = "Contact"
 
-    // ยังไม่มีใน main — ถ้าเพื่อนตั้งชื่ออื่น แก้ตรงนี้ที่เดียว
-    const val QUALIFICATION = "Qualification"
-    const val FEES = "Fees"
+    // หน้า 07 / 08 (ไฟล์จากเพื่อน)
+    const val QUALIFICATION = "N_07_Qualification"
+    const val FEES = "N_08_Fees"
 
     private const val PACKAGE = "com.example.fitmapp"
 

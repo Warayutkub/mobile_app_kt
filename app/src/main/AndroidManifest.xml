@@ -13,6 +13,12 @@
         android:theme="@style/Theme.FitmApp">
         
         <activity
+            android:name=".N_07_Qualification"
+            android:exported="false" />
+        <activity
+            android:name=".N_08_Fees"
+            android:exported="false" />
+        <activity
             android:name=".FullScreenGallery"
             android:exported="false" />
         <activity
