@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitmapp.ui.keepClearOfSystemBars
@@ -23,25 +25,42 @@ class Gallery : AppCompatActivity() {
         BottomNav.setupStatic(this, findViewById(R.id.bottomNavigation), Tab.GALLERY)
 
         activityView.setOnClickListener { openViewer(photos[0]) }
+        showPhoto(activityView, photos[0].image)
+        val highlight = activityView.parent as ViewGroup
+        (highlight.getChildAt(highlight.indexOfChild(activityView) + 1) as? TextView)?.text = photos[0].title
         findGrid(findViewById(android.R.id.content))?.let { grid ->
             for (i in 0 until grid.childCount) {
                 val photo = photos.getOrNull(i + 1) ?: continue
-                grid.getChildAt(i).setOnClickListener { openViewer(photo) }
+                val item = grid.getChildAt(i) as ViewGroup
+                item.setOnClickListener { openViewer(photo) }
+                showPhoto(item.getChildAt(0) as ViewGroup, photo.image)
+                (item.getChildAt(1) as TextView).text = photo.title
+                (item.getChildAt(2) as TextView).text = "ภาพ: ${photo.source}"
             }
         }
     }
 
     private val photos = listOf(
-        GalleryPhoto("ค่าย & อบรม", "IT Camp 2569", "ค่ายพัฒนาทักษะนักศึกษาใหม่ของภาควิชาเทคโนโลยีสารสนเทศ"),
-        GalleryPhoto("ค่าย & อบรม", "ค่ายพัฒนาทักษะ IT", "กิจกรรมฝึกทักษะด้านเทคโนโลยีสารสนเทศให้นักศึกษา"),
-        GalleryPhoto("แนะแนว", "Open House FITM", "นักศึกษาภาควิชา IT แนะนำหลักสูตรและพาน้อง ๆ ทดลองเขียนโปรแกรมในห้องปฏิบัติการ")
+        GalleryPhoto("กิจกรรม", "กิจกรรมนักศึกษา FITM", "บรรยากาศคอนเสิร์ตในงานกิจกรรมของนักศึกษาคณะเทคโนโลยีและการจัดการอุตสาหกรรม", R.drawable.photo_gallery_activity, SOURCE),
+        GalleryPhoto("บรรยากาศ", "อาคารคณะ FITM", "ป้ายหน้าอาคารคณะเทคโนโลยีและการจัดการอุตสาหกรรม มจพ. วิทยาเขตปราจีนบุรี", R.drawable.photo_gallery_faculty, SOURCE),
+        GalleryPhoto("การเรียน", "ห้องแล็บคอมพิวเตอร์", "นักศึกษาฝึกปฏิบัติในห้องปฏิบัติการคอมพิวเตอร์ของภาควิชาเทคโนโลยีสารสนเทศ", R.drawable.photo_gallery_lab, SOURCE)
     )
+
+    private fun showPhoto(card: ViewGroup, image: Int) {
+        card.addView(ImageView(this).apply {
+            setImageResource(image)
+            scaleType = ImageView.ScaleType.CENTER_CROP
+            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        })
+    }
 
     private fun openViewer(photo: GalleryPhoto) {
         startActivity(Intent(this, FullScreenGallery::class.java)
             .putExtra(FullScreenGallery.EXTRA_CATEGORY, photo.category)
             .putExtra(FullScreenGallery.EXTRA_TITLE, photo.title)
-            .putExtra(FullScreenGallery.EXTRA_DESCRIPTION, photo.description))
+            .putExtra(FullScreenGallery.EXTRA_DESCRIPTION, photo.description)
+            .putExtra(FullScreenGallery.EXTRA_IMAGE, photo.image)
+            .putExtra(FullScreenGallery.EXTRA_SOURCE, photo.source))
     }
 
     private fun findGrid(view: View): GridLayout? {
@@ -51,4 +70,6 @@ class Gallery : AppCompatActivity() {
     }
 }
 
-data class GalleryPhoto(val category: String, val title: String, val description: String)
+private const val SOURCE = "เว็บคณะ FITM"
+
+data class GalleryPhoto(val category: String, val title: String, val description: String, val image: Int, val source: String)

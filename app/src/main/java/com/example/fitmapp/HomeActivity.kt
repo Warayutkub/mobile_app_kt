@@ -26,6 +26,12 @@ class HomeActivity : AppCompatActivity() {
         "bind_it_2y" to "ต่อเนื่อง 2 ปี"
     )
 
+    private val featurePhotos = mapOf(
+        "bsc_it_4y" to R.drawable.photo_program_it,
+        "beng_ine_4y" to R.drawable.photo_program_ine,
+        "bind_it_2y" to R.drawable.photo_program_ind
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -59,6 +65,12 @@ class HomeActivity : AppCompatActivity() {
             text = program.degree
             setTextColor(getColor(program.tone.color))
             tintBackground(program.tone.tint)
+        }
+        featurePhotos[program.id]?.let { photo ->
+            card.findViewById<ImageView>(R.id.featurePhoto).apply {
+                setImageResource(photo)
+                visibility = View.VISIBLE
+            }
         }
         card.findViewById<TextView>(R.id.featureName).text = program.name
         card.findViewById<TextView>(R.id.featureMeta).text = meta

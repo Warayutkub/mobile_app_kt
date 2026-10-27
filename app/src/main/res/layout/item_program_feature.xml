@@ -26,6 +26,14 @@
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_image"
                 app:tint="@color/primary" />
+
+            <ImageView
+                android:id="@+id/featurePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
         </FrameLayout>
 
         <LinearLayout
