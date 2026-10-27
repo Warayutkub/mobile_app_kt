@@ -52,8 +52,8 @@ data class Program(
 
 /**
  * ข้อมูลหลักสูตรทั้งหมดของแอป — ทุกหน้าใช้ชุดนี้
- * มีข้อมูลจริงเฉพาะ วท.บ. IT 4 ปี (เล่มหลักสูตรปรับปรุง พ.ศ. 2567)
- * หลักสูตรอื่น placeholder = true: เติม structure / studyPlans / terms แบบเดียวกันได้เลย
+ * ข้อมูลทุกหลักสูตรมาจากเล่มหลักสูตร (มคอ.2) ที่ลิงก์จาก fitm.kmutnb.ac.th/IT.html
+ * คำอธิบายรายวิชา (descriptionEn) มีเฉพาะ วท.บ. IT 4 ปี
  */
 object ProgramData {
 
@@ -139,6 +139,224 @@ object ProgramData {
         ))
     )
 
+    // ---- ข้อมูลจากเล่มหลักสูตร (ดึงจาก PDF บน fitm.kmutnb.ac.th/IT.html) ----
+    val itTransferTerms = listOf(
+        Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(
+            Course("060243102", "การโปรแกรมคอมพิวเตอร์", "Computer Programming", 3, "2-2-5"),
+            Course("060243105", "ความรู้พื้นฐานในการออกแบบกราฟิก", "Fundamental of Graphics Design", 3, "2-2-5"),
+            Course("060243108", "ระบบฐานข้อมูล", "Database System", 3, "3-0-6", english = true),
+            Course("060243124", "ธุรกิจดิจิทัลเบื้องต้น", "Fundamental of Digital Business", 3, "3-0-6"),
+            Course("080103063", "การใช้ภาษาอังกฤษ", "Practical English", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 1 · ภาคเรียนที่ 2", listOf(
+            Course("060243104", "การเขียนโปรแกรมเชิงวัตถุ", "Object-oriented Programming", 3, "2-2-5", english = true),
+            Course("060243115", "การออกแบบจากประสบการณ์ผู้ใช้", "User Experience Design", 3, "2-2-5", english = true),
+            Course("060243122", "เว็บแอปพลิเคชัน", "Web Application", 3, "2-2-5"),
+            Course("060243112", "การวิเคราะห์และออกแบบระบบ", "System Analysis and Design", 3, "3-0-6"),
+            Course("060243123", "เครือข่ายคอมพิวเตอร์และอินเทอร์เน็ต", "Computer Network and Internet", 3, "3-0-6"),
+            Course("060243119", "", "Information Technology Project Management", 3, "3-0-6"),
+            Course("060243708", "กระบวนการทางธุรกิจเชิงอิเล็กทรอนิกส์", "Electronic Business Process", 3, "3-0-6")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 1", listOf(
+            Course("060243116", "อินเทอร์เน็ตในทุกสรรพสิ่ง", "Internet of Things", 3, "2-2-5", english = true),
+            Course("060243106", "โครงสร้างข้อมูลและขั้นตอนวิธี", "Data Structure and Algorithm", 3, "3-0-6", english = true),
+            Course("060243707", "การโปรแกรมคอมพิวเตอร์ทางธุรกิจ", "Business Programming", 3, "2-2-5"),
+            Course("060243718", "การวิเคราะห์ธุรกิจ", "Business Analytics", 3, "3-0-6"),
+            Course("060243706", "โปรแกรมประยุกต์การวางแผนทรัพยากรองค์กร", "Enterprise Resources Planning Application", 3, "2-2-5"),
+            Course("060243118", "การพัฒนาโปรแกรมประยุกต์บนอุปกรณ์เคลื่อนที่", "Mobile Application Development", 3, "2-2-5"),
+            Course("060243111", "วิศวกรรมซอฟต์แวร์", "Software Engineering", 3, "3-0-6", english = true)
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 2", listOf(
+            Course("060243716", "หัวข้อเฉพาะเรื่องทางธุรกิจดิจิทัล", "Selected Topics in Digital Business", 3, "3-0-6"),
+            Course("060243717", "การประยุกต์คอมพิวเตอร์เพื่องานธุรกิจ", "Computer Application for Business", 3, "3-0-6"),
+            Course("060243705", "ระบบอัจฉริยะเชิงธุรกิจ", "Business Intelligent System", 3, "3-0-6"),
+            Course("060243202", "โครงงานเทคโนโลยีสารสนเทศ 1", "Information Technology Project I", 3, "0-6-3"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6")
+        ))
+    )
+
+    val ineTransferTerms = listOf(
+        Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(
+            Course("040203123", "คณิตศาสตร์เต็มหน่วยและการประยุกต์", "Discrete Mathematics and Applications", 3, "3-0-6"),
+            Course("060233101", "วิศวกรรมสารสนเทศและเครือข่ายเบื้องต้น", "Introduction to Information and Network Engineering", 3, "2-2-5"),
+            Course("060233108", "การสื่อสารข้อมูลและเครือข่ายคอมพิวเตอร์", "Data Communication and Computer Network", 3, "3-0-6"),
+            Course("060233115", "การเขียนโปรแกรมคอมพิวเตอร์", "Computer Programming", 3, "2-2-5"),
+            Course("080103063", "การใช้ภาษาอังกฤษ", "Practical English", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 1 · ภาคเรียนที่ 2", listOf(
+            Course("060233106", "การเขียนแบบวิศวกรรมสารสนเทศและเครือข่าย", "Information and Network Engineering Drawing", 3, "2-2-5"),
+            Course("060233111", "สถาปัตยกรรมคอมพิวเตอร์และระบบปฏิบัติการ", "Computer Architecture and Operating System", 3, "3-0-6", english = true),
+            Course("060233114", "สถิติสำหรับวิศวกรข้อมูลและนักวิทยาศาสตร์ข้อมูล", "Statistics for Data Engineers and Scientists", 3, "3-0-6"),
+            Course("060233116", "การแก้ปัญหาและขั้นตอนวิธี", "Problem Solving and Algorithm", 3, "2-2-5"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 1", listOf(
+            Course("060233120", "การพัฒนาระบบสารสนเทศแบบครบองค์ประกอบ", "Full Stack System Development", 3, "2-2-5"),
+            Course("060233205", "เครือข่ายขั้นสูงและโปรโตคอล", "Advanced Network and Protocol", 3, "3-0-6", english = true),
+            Course("060233207", "การประยุกต์ใช้การเรียนรู้ของเครื่องจักร", "Applied Machine Learning", 3, "2-2-5"),
+            Course("060233215", "ปฏิบัติการวิศวกรรมสารสนเทศและเครือข่าย 1", "Information and Network Engineering Laboratory I", 1, "0-3-1", english = true),
+            Course("060233218", "โครงสร้างพื้นฐานคลาวด์สำหรับซอฟต์แวร์และบริการ", "Cloud Infrastructure for Software and Service", 3, "2-2-5", english = true),
+            Course("เลือกเรียน", "วิชาเลือกกลุ่มวิชาชีพ", "Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 2", listOf(
+            Course("060233112", "วิศวกรรมข้อมูล", "Data Engineering", 3, "3-0-6"),
+            Course("060233119", "ระบบฐานข้อมูล", "Database System", 3, "3-0-6"),
+            Course("060233204", "การออกแบบและการจัดทำเครือข่ายคอมพิวเตอร์", "Computer Network Design and Implementation", 3, "3-0-6"),
+            Course("060233209", "การพัฒนาโปรแกรมประยุกต์บนอุปกรณ์เคลื่อนที่", "Mobile Application Development", 3, "3-0-6"),
+            Course("060233214", "สัมมนาวิศวกรรมสารสนเทศและเครือข่าย", "Information and Network Engineering Seminar", 1, "0-3-1", english = true),
+            Course("060233216", "ปฏิบัติการวิศวกรรมสารสนเทศและเครือข่าย 2", "Information and Network Engineering Laboratory II", 1, "0-3-1", english = true),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 2 · ภาคฤดูร้อน", listOf(
+            Course("060233403", "การฝึกงาน", "Internship", 1, "240 ชั่วโมง")
+        )),
+        Term("ปีที่ 3 · ภาคเรียนที่ 1", listOf(
+            Course("060233118", "วิศวกรรมซอฟต์แวร์", "Software Engineering", 3, "3-0-6"),
+            Course("060233208", "ความมั่นคงปลอดภัยไซเบอร์", "Cybersecurity", 3, "3-0-6", english = true),
+            Course("060233217", "ปฏิบัติการวิศวกรรมสารสนเทศและเครือข่าย 3", "Information and Network Engineering Laboratory III", 1, "0-3-1", english = true),
+            Course("060233220", "การประมวลผลภาษาธรรมชาติ", "Natural Language Processing", 3, "2-2-5"),
+            Course("060233221", "ความปลอดภัยและความเป็นส่วนตัวของข้อมูล", "Data Security and Privacy", 3, "3-0-6", english = true),
+            Course("เลือกเรียน", "วิชาเลือกกลุ่มวิชาชีพ", "Elective Course", 3, "3-0-6"),
+            Course("060233404", "การเตรียมโครงงานพิเศษวิศวกรรมสารสนเทศและเครือข่าย", "Information and Network Engineering Special Project", 1, "0-3-1")
+        )),
+        Term("ปีที่ 3 · ภาคเรียนที่ 2", listOf(
+            Course("060233206", "การจัดการเครือข่ายเบื้องต้นและเครื่องมือ", "Fundamental of Network Management and Tools", 3, "3-0-6"),
+            Course("060233212", "การวิเคราะห์ข้อมูลขนาดใหญ่", "Big Data Analytics", 3, "2-2-5", english = true),
+            Course("060233219", "การออกแบบและการประยุกต์อินเทอร์เน็ตในทุกสรรพสิ่ง", "Internet of Things Design and Application", 3, "2-2-5", english = true),
+            Course("060233405", "โครงงานพิเศษวิศวกรรมสารสนเทศและเครือข่าย", "Information and Network Engineering Special Project", 3, "0-6-3"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6")
+        ))
+    )
+
+    val ine4Terms = listOf(
+        Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(
+            Course("060233101", "วิศวกรรมสารสนเทศและเครือข่ายเบื้องต้น", "Introduction to Information and Network Engineering", 3, "2-2-5"),
+            Course("060233115", "การเขียนโปรแกรมคอมพิวเตอร์", "Computer Programming", 3, "2-2-5"),
+            Course("080103001", "ภาษาอังกฤษ 1", "English I", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในชุดวิชากีฬาและนันทนาการ", "Sports and Recreations Elective Course", 1, "0-2-1"),
+            Course("080303701", "กระบวนการคิดเชิงออกแบบ", "Design Thinking", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 1 · ภาคเรียนที่ 2", listOf(
+            Course("040203123", "คณิตศาสตร์เต็มหน่วยและการประยุกต์", "Discrete Mathematics and Applications", 3, "3-0-6"),
+            Course("060233108", "การสื่อสารข้อมูลและเครือข่ายคอมพิวเตอร์", "Data Communication and Computer Network", 3, "3-0-6"),
+            Course("060233116", "การแก้ปัญหาและขั้นตอนวิธี", "Problem Solving and Algorithm", 3, "2-2-5"),
+            Course("060233117", "อิเล็กทรอนิกส์และวงจรดิจิทัล", "Electronics and Digital Circuit", 3, "2-2-5"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 2, "2-0-4"),
+            Course("080103002", "ภาษาอังกฤษ 2", "English II", 3, "3-0-6")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 1", listOf(
+            Course("040203111", "คณิตศาสตร์วิศวกรรม 1", "Engineering Mathematics I", 3, "3-0-6"),
+            Course("060233120", "การพัฒนาระบบสารสนเทศแบบครบองค์ประกอบ", "Full Stack System Development", 3, "2-2-5"),
+            Course("060233205", "เครือข่ายขั้นสูงและโปรโตคอล", "Advanced Network and Protocol", 3, "3-0-6", english = true),
+            Course("060233215", "ปฏิบัติการวิศวกรรมสารสนเทศและเครือข่าย 1", "Information and Network Engineering Laboratory I", 1, "0-3-1", english = true),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 2", listOf(
+            Course("040203112", "คณิตศาสตร์วิศวกรรม 2", "Engineering Mathematics II", 3, "3-0-6"),
+            Course("060233106", "การเขียนแบบวิศวกรรมสารสนเทศและเครือข่าย", "Information and Network Engineering Drawing", 3, "2-2-5"),
+            Course("060233111", "สถาปัตยกรรมคอมพิวเตอร์และระบบปฏิบัติการ", "Computer Architecture and Operating System", 3, "3-0-6", english = true),
+            Course("060233112", "วิศวกรรมข้อมูล", "Data Engineering", 3, "3-0-6"),
+            Course("060233119", "ระบบฐานข้อมูล", "Database System", 3, "3-0-6"),
+            Course("060233216", "ปฏิบัติการวิศวกรรมสารสนเทศและเครือข่าย 2", "Information and Network Engineering Laboratory II", 1, "0-3-1", english = true),
+            Course("060233219", "การออกแบบและการประยุกต์อินเทอร์เน็ตในทุกสรรพสิ่ง", "Internet of Things Design and Application", 3, "2-2-5", english = true)
+        )),
+        Term("ปีที่ 3 · ภาคเรียนที่ 1", listOf(
+            Course("060233118", "วิศวกรรมซอฟต์แวร์", "Software Engineering", 3, "3-0-6"),
+            Course("060233207", "การประยุกต์ใช้การเรียนรู้ของเครื่องจักร", "Applied Machine Learning", 3, "2-2-5"),
+            Course("060233217", "ปฏิบัติการวิศวกรรมสารสนเทศและเครือข่าย 3", "Information and Network Engineering Laboratory III", 1, "0-3-1", english = true),
+            Course("060233218", "โครงสร้างพื้นฐานคลาวด์สำหรับซอฟต์แวร์และบริการ", "Cloud Infrastructure for Software and Service", 3, "2-2-5", english = true),
+            Course("060233221", "ความปลอดภัยและความเป็นส่วนตัวของข้อมูล", "Data Security and Privacy", 3, "3-0-6", english = true),
+            Course("เลือกเรียน", "วิชาเลือกกลุ่มวิชาชีพ", "Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 3 · ภาคเรียนที่ 2", listOf(
+            Course("060233114", "สถิติสำหรับวิศวกรข้อมูลและนักวิทยาศาสตร์ข้อมูล", "Statistics for Data Engineers and Scientists", 3, "3-0-6"),
+            Course("060233204", "การออกแบบและการจัดทำเครือข่ายคอมพิวเตอร์", "Computer Network Design and Implementation", 3, "3-0-6"),
+            Course("060233206", "การจัดการเครือข่ายเบื้องต้นและเครื่องมือ", "Fundamental of Network Management and Tools", 3, "3-0-6"),
+            Course("060233209", "การพัฒนาโปรแกรมประยุกต์บนอุปกรณ์เคลื่อนที่", "Mobile Application Development", 3, "3-0-6"),
+            Course("060233212", "การวิเคราะห์ข้อมูลขนาดใหญ่", "Big Data Analytics", 3, "2-2-5", english = true),
+            Course("060233214", "สัมมนาวิศวกรรมสารสนเทศและเครือข่าย", "Information and Network Engineering Seminar", 1, "0-3-1", english = true),
+            Course("080203914", "ผู้ประกอบการนวัตกรรม", "Innovative Technopreneurs", 3, "3-0-6")
+        )),
+        Term("ปีที่ 3 · ภาคฤดูร้อน (โครงการปกติ)", listOf(
+            Course("060233403", "การฝึกงาน", "Internship", 1, "240 ชั่วโมง")
+        )),
+        Term("ปีที่ 4 · ภาคเรียนที่ 1 (โครงการปกติ)", listOf(
+            Course("060233208", "ความมั่นคงปลอดภัยไซเบอร์", "Cybersecurity", 3, "3-0-6", english = true),
+            Course("060233220", "การประมวลภาษาธรรมชาติ", "Natural Language Processing", 3, "2-2-5"),
+            Course("060233401", "โครงงานวิศวกรรมสารสนเทศและเครือข่าย 1", "Information and Network Engineering Project I", 3, "0-6-3"),
+            Course("เลือกเรียน", "วิชาเลือกกลุ่มวิชาชีพ", "Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 4 · ภาคเรียนที่ 2 (โครงการปกติ)", listOf(
+            Course("060233402", "โครงงานวิศวกรรมสารสนเทศและเครือข่าย 2", "Information and Network Engineering Project II", 3, "0-6-3"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 4 · ภาคเรียนที่ 1 (โครงการสหกิจศึกษา)", listOf(
+            Course("060233208", "ความมั่นคงปลอดภัยไซเบอร์", "Cybersecurity", 3, "3-0-6", english = true),
+            Course("060233220", "การประมวลภาษาธรรมชาติ", "Natural Language Processing", 3, "2-2-5"),
+            Course("060233501", "เตรียมสหกิจศึกษา", "Co-operative Education Preparation", 1, "0-2-4"),
+            Course("เลือกเรียน", "วิชาเลือกกลุ่มวิชาชีพ", "Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในหมวดวิชาศึกษาทั่วไป", "General Education Elective Course", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 4 · ภาคเรียนที่ 2 (โครงการสหกิจศึกษา)", listOf(
+            Course("060233502", "สหกิจศึกษา", "Co-operative Education", 6, "540 ชั่วโมง")
+        ))
+    )
+
+    val indTerms = listOf(
+        Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(
+            Course("060223130", "ทักษะคอมพิวเตอร์เบื้องต้น", "Computer Basic Skill", 1, "0-3-1"),
+            Course("060223111", "ดิจิทัลอิเล็กทรอนิกส์", "Digital Electronics", 3, "3-0-6", english = true),
+            Course("060223112", "ปฏิบัติการดิจิทัลอิเล็กทรอนิกส์", "Digital Electronics Laboratory", 1, "0-3-1"),
+            Course("060223131", "การโปรแกรมโครงสร้าง", "Structural Programming", 2, "2-0-4", english = true),
+            Course("060223114", "ปฏิบัติการโปรแกรมโครงสร้าง", "Structural Programming Laboratory", 1, "0-3-1"),
+            Course("060223123", "ระบบฐานข้อมูล", "Database System", 3, "3-0-6", english = true),
+            Course("080103061", "การใช้ภาษาอังกฤษ 1", "Practical English I", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในกลุ่มวิชาวิทยาศาสตร์และคณิตศาสตร์", "Mathematics and Science Elective Course", 3, "3-0-6")
+        )),
+        Term("ปีที่ 1 · ภาคเรียนที่ 2", listOf(
+            Course("060223115", "การวิเคราะห์และออกแบบระบบ", "System Analysis and Design", 3, "3-0-6"),
+            Course("060223132", "การโปรแกรมเชิงวัตถุ", "Object-oriented Programming", 2, "2-0-4"),
+            Course("060223117", "ปฏิบัติการโปรแกรมเชิงวัตถุ", "Object-oriented Programming Laboratory", 1, "0-3-1"),
+            Course("060223119", "โครงสร้างข้อมูลและขั้นตอนวิธี", "Data Structure and Algorithm", 3, "3-0-6"),
+            Course("060223135", "สถาปัตยกรรมคอมพิวเตอร์และระบบปฏิบัติการ", "Computer Architecture and Operating System", 3, "3-0-6", english = true),
+            Course("060223136", "การศึกษาโครงงานเทคโนโลยีสารสนเทศ", "Information Technology Project Study", 2, "0-4-2"),
+            Course("080103062", "การใช้ภาษาอังกฤษ 2", "Practical English II", 3, "3-0-6"),
+            Course("เลือกเรียน", "วิชาเลือกในกลุ่มวิชาบูรณาการ", "Integrated Elective Course", 3, "")
+        )),
+        Term("ปีที่ 1 · ภาคฤดูร้อน", listOf(
+            Course("060223129", "การฝึกปฏิบัติงาน", "Training", 2, "240 ชั่วโมง")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 1", listOf(
+            Course("060223124", "การสื่อสารข้อมูลและเครือข่ายคอมพิวเตอร์", "Data Communication and Computer Networks", 3, "3-0-6"),
+            Course("060223133", "การพัฒนาเว็บแอปพลิเคชัน", "Web Application Development", 2, "2-0-4", english = true),
+            Course("060223134", "ปฏิบัติการพัฒนาเว็บแอปพลิเคชัน", "Web Application Development Laboratory", 1, "0-3-1"),
+            Course("060223137", "โครงงานพิเศษเทคโนโลยีสารสนเทศ", "Information Technology Special Project", 4, "0-8-4"),
+            Course("เลือกเรียน", "วิชาเลือกในกลุ่มวิชาสังคมศาสตร์และมนุษยศาสตร์", "Social Sciences and Humanities Elective Course", 3, ""),
+            Course("เลือกเรียน", "วิชาเลือก", "Elective Course", 3, ""),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "")
+        )),
+        Term("ปีที่ 2 · ภาคเรียนที่ 2", listOf(
+            Course("060223126", "สัมมนาเทคโนโลยีสารสนเทศ", "Information Technology Seminar", 1, "0-3-1"),
+            Course("060223127", "การพัฒนาโปรแกรมประยุกต์สำหรับสถาปัตยกรรมแบบโอเพ่นซอร์ส", "Application Program Development for Open-Source Architecture", 3, "3-0-6"),
+            Course("060223128", "หัวข้อเฉพาะเรื่องทางเทคโนโลยีสารสนเทศเพื่ออุตสาหกรรม", "Selected topics in Information Technology for Industry", 3, "0-6-3"),
+            Course("060223138", "อินเทอร์เน็ตในทุกสิ่งและระบบอัจฉริยะ", "Internet of Thing and Smart System", 3, "3-0-6", english = true),
+            Course("060223139", "ปฏิบัติการอินเทอร์เน็ตในทุกสิ่งและระบบอัจฉริยะ", "Internet of Things and Smart System Laboratory", 1, "0-3-1"),
+            Course("เลือกเรียน", "วิชาเลือกในกลุ่มวิชาภาษา", "Language Elective Course", 3, ""),
+            Course("เลือกเรียน", "วิชาเลือก", "Elective Course", 3, ""),
+            Course("เลือกเรียน", "วิชาเลือกเสรี", "Free Elective Course", 3, "")
+        ))
+    )
+
     val programs: List<Program> by lazy {
         listOf(
             Program(
@@ -154,28 +372,43 @@ object ProgramData {
                 terms = it67Terms
             ),
             Program(
-                id = "bsc_it_transfer", degree = "วท.บ.", plan = "เทียบโอน", name = "เทคโนโลยีสารสนเทศ (เทียบโอน)",
-                degreeFull = "วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)",
-                entry = "รับ ปวส. พาณิชยกรรม / บริหารธุรกิจ", credits = 94, feePerTerm = 19000, semesters = 5,
-                tone = Tone.IT, placeholder = true
+                id = "bsc_it_transfer", degree = "วท.บ.", plan = "เทียบโอน 2 ปี", name = "เทคโนโลยีสารสนเทศ (เทียบโอน)",
+                degreeFull = "วิทยาศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ) · วท.บ. (เทคโนโลยีสารสนเทศ)",
+                entry = "รับ ปวส. / อนุปริญญา พาณิชยกรรม / บริหารธุรกิจ", credits = 84, feePerTerm = 19000, semesters = 4,
+                tone = Tone.IT, revision = "หลักสูตรปรับปรุง 2567",
+                structure = listOf("หมวดวิชาศึกษาทั่วไป" to 12, "หมวดวิชาเฉพาะ" to 66, "หมวดวิชาเลือกเสรี" to 6),
+                studyPlans = listOf(StudyPlan("โครงการปกติ", "เรียน 4 ภาคเรียน เน้นธุรกิจดิจิทัล + โครงงาน 1 ภาคเรียน")),
+                terms = itTransferTerms
             ),
             Program(
                 id = "beng_ine_4y", degree = "วศ.บ.", plan = "4 ปี", name = "วิศวกรรมสารสนเทศและเครือข่าย",
-                degreeFull = "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมสารสนเทศและเครือข่าย)",
-                entry = "รับ ม.6 วิทย์-คณิต / ปวช.", credits = 135, feePerTerm = 25000, semesters = 8,
-                tone = Tone.INE, placeholder = true
+                degreeFull = "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมสารสนเทศและเครือข่าย) · วศ.บ. (วิศวกรรมสารสนเทศและเครือข่าย)",
+                entry = "รับ ม.6 ทุกสาย / ปวช. ทุกสาขา", credits = 125, feePerTerm = 25000, semesters = 8,
+                tone = Tone.INE, revision = "หลักสูตรปรับปรุง 2567",
+                structure = listOf("หมวดวิชาศึกษาทั่วไป" to 24, "หมวดวิชาเฉพาะ" to 95, "หมวดวิชาเลือกเสรี" to 6),
+                studyPlans = listOf(
+                    StudyPlan("โครงการปกติ", "ฝึกงาน 240 ชม. + โครงงาน 2 ภาคเรียน"),
+                    StudyPlan("สหกิจศึกษา", "สหกิจศึกษา 540 ชม. ในปีที่ 4")
+                ),
+                terms = ine4Terms
             ),
             Program(
                 id = "beng_ine_transfer", degree = "วศ.บ.", plan = "เทียบโอน 3 ปี", name = "วิศวกรรมสารสนเทศและเครือข่าย (เทียบโอน)",
-                degreeFull = "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมสารสนเทศและเครือข่าย)",
-                entry = "รับ ปวส. ช่างอุตสาหกรรม", credits = 102, feePerTerm = 25000, semesters = 6,
-                tone = Tone.INE, placeholder = true
+                degreeFull = "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมสารสนเทศและเครือข่าย) · วศ.บ. (วิศวกรรมสารสนเทศและเครือข่าย)",
+                entry = "รับ ปวส. / อนุปริญญา ทุกสาขา", credits = 102, feePerTerm = 25000, semesters = 6,
+                tone = Tone.INE, revision = "หลักสูตรปรับปรุง 2567",
+                structure = listOf("หมวดวิชาศึกษาทั่วไป" to 12, "หมวดวิชาเฉพาะ" to 84, "หมวดวิชาเลือกเสรี" to 6),
+                studyPlans = listOf(StudyPlan("โครงการปกติ", "ฝึกงาน 240 ชม. + โครงงานพิเศษ")),
+                terms = ineTransferTerms
             ),
             Program(
                 id = "bind_it_2y", degree = "อส.บ.", plan = "ต่อเนื่อง 2 ปี", name = "เทคโนโลยีสารสนเทศ (ต่อเนื่อง)",
-                degreeFull = "อุตสาหกรรมศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ)",
-                entry = "รับ ปวส. ช่างอุตสาหกรรม / พาณิชยกรรม", credits = 81, feePerTerm = 19000, semesters = 4,
-                tone = Tone.IND, placeholder = true
+                degreeFull = "อุตสาหกรรมศาสตรบัณฑิต (เทคโนโลยีสารสนเทศ) · อส.บ. (เทคโนโลยีสารสนเทศ)",
+                entry = "รับ ปวส. ช่างอุตสาหกรรม / พาณิชยกรรม", credits = 78, feePerTerm = 19000, semesters = 4,
+                tone = Tone.IND, revision = "หลักสูตรปรับปรุง 2566",
+                structure = listOf("หมวดวิชาศึกษาทั่วไป" to 18, "หมวดวิชาเฉพาะ" to 54, "หมวดวิชาเลือกเสรี" to 6),
+                studyPlans = listOf(StudyPlan("โครงการปกติ", "ฝึกปฏิบัติงาน 240 ชม. (ฤดูร้อนปี 1) + โครงงานพิเศษ")),
+                terms = indTerms
             )
         )
     }
