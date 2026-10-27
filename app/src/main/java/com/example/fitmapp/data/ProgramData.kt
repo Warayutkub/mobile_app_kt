@@ -51,19 +51,14 @@ data class Program(
 )
 
 /**
- * ข้อมูลหลักสูตรทั้งหมดของแอป — ทุกหน้าใช้ชุดนี้
+ * ข้อมูลเริ่มต้นที่ DatabaseHelper ใส่ลง SQLite ตอนเปิดแอปครั้งแรก — หน้าจอไม่อ่านไฟล์นี้ตรงๆ (อ่านผ่าน ProgramRepository)
  * ข้อมูลทุกหลักสูตรมาจากเล่มหลักสูตร (มคอ.2) ที่ลิงก์จาก fitm.kmutnb.ac.th/IT.html
  * คำอธิบายรายวิชา (descriptionEn) มีเฉพาะ วท.บ. IT 4 ปี
+ * แก้ข้อมูลที่นี่แล้วต้องเพิ่ม DatabaseHelper.DB_VERSION ไม่งั้นเครื่องที่ติดตั้งแล้วจะยังเห็นข้อมูลเก่า
  */
 object ProgramData {
 
     const val APPLY_URL = "https://stdadmis2.kmutnb.ac.th/ApplyStart"
-
-    fun find(id: String?): Program = programs.firstOrNull { it.id == id } ?: programs.first()
-
-    /** หาชื่อวิชาจากรหัส (ใช้แสดงวิชาบังคับก่อน) */
-    fun courseName(program: Program, code: String): String? =
-        program.terms.flatMap { it.courses }.firstOrNull { it.code == code }?.nameTh
 
     val it67Terms = listOf(
         Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(

@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitmapp.data.ProgramRepository
 import com.example.fitmapp.ui.keepClearOfSystemBars
+import com.example.fitmapp.ui.withComma
 import com.google.android.material.chip.ChipGroup
 
 
@@ -17,14 +19,22 @@ class N_08_Fees : AppCompatActivity() {
     private lateinit var tvTotalFee: TextView
     private lateinit var chipGroupPrograms: ChipGroup
 
-    // Map เก็บข้อมูลค่าเทอมของแต่ละ Chip ID
-    private val programFeeMap = mapOf(
-        R.id.chipIt4 to ProgramFeeInfo("19,000 ฿", "8 ภาค", "≈ 152,000 ฿"),
-        R.id.chipItTransfer to ProgramFeeInfo("19,000 ฿", "5 ภาค", "≈ 95,000 ฿"),
-        R.id.chipIne4 to ProgramFeeInfo("25,000 ฿", "8 ภาค", "≈ 200,000 ฿"),
-        R.id.chipIneTransfer to ProgramFeeInfo("25,000 ฿", "6 ภาค", "≈ 150,000 ฿"),
-        R.id.chipItContinue to ProgramFeeInfo("19,000 ฿", "4 ภาค", "≈ 76,000 ฿")
+    // Chip / แถวตาราง → id หลักสูตรในฐานข้อมูล (ค่าเทอม และจำนวนภาคเรียนอ่านจาก SQLite)
+    private val chipProgram = mapOf(
+        R.id.chipIt4 to "bsc_it_4y",
+        R.id.chipItTransfer to "bsc_it_transfer",
+        R.id.chipIne4 to "beng_ine_4y",
+        R.id.chipIneTransfer to "beng_ine_transfer",
+        R.id.chipItContinue to "bind_it_2y"
     )
+
+    // Map เก็บข้อมูลค่าเทอมของแต่ละ Chip ID
+    private val programFeeMap: Map<Int, ProgramFeeInfo> by lazy {
+        chipProgram.mapValues { (_, id) ->
+            val p = ProgramRepository.program(id)
+            ProgramFeeInfo("${p.feePerTerm.withComma()} ฿", "${p.semesters} ภาค", "≈ ${(p.feePerTerm * p.semesters).withComma()} ฿")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +56,7 @@ class N_08_Fees : AppCompatActivity() {
                 updateFeeInfo(selectedId)
             }
         }
+        updateFeeInfo(chipGroupPrograms.checkedChipId) // ค่าเริ่มต้นจากฐานข้อมูล (หมุนจอแล้วยังเป็นชิปเดิม)
     }
 
     private fun updateFeeInfo(chipId: Int) {
@@ -56,11 +67,16 @@ class N_08_Fees : AppCompatActivity() {
     }
 
     private fun setupTableRows() {
-        setupRow(findViewById(R.id.rowIt4), "วท.บ. IT 4 ปี", "19,000", "152,000")
-        setupRow(findViewById(R.id.rowItTransfer), "วท.บ. IT เทียบโอน", "19,000", "95,000")
-        setupRow(findViewById(R.id.rowIne4), "วศ.บ. INE 4 ปี", "25,000", "200,000")
-        setupRow(findViewById(R.id.rowIneTransfer), "วศ.บ. INE เทียบโอน", "25,000", "150,000")
-        setupRow(findViewById(R.id.rowItContinue), "อส.บ. IT ต่อเนื่อง", "19,000", "76,000")
+        setupRow(findViewById(R.id.rowIt4), "วท.บ. IT 4 ปี", "bsc_it_4y")
+        setupRow(findViewById(R.id.rowItTransfer), "วท.บ. IT เทียบโอน", "bsc_it_transfer")
+        setupRow(findViewById(R.id.rowIne4), "วศ.บ. INE 4 ปี", "beng_ine_4y")
+        setupRow(findViewById(R.id.rowIneTransfer), "วศ.บ. INE เทียบโอน", "beng_ine_transfer")
+        setupRow(findViewById(R.id.rowItContinue), "อส.บ. IT ต่อเนื่อง", "bind_it_2y")
+    }
+
+    private fun setupRow(rowView: View, title: String, programId: String) {
+        val p = ProgramRepository.program(programId)
+        setupRow(rowView, title, p.feePerTerm.withComma(), (p.feePerTerm * p.semesters).withComma())
     }
 
     private fun setupRow(rowView: View, title: String, perSemester: String, total: String) {
