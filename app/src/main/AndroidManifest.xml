@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".FitmApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitmApp">
         
+        <activity
+            android:name=".N_07_Qualification"
+            android:exported="false" />
+        <activity
+            android:name=".N_08_Fees"
+            android:exported="false" />
         <activity
             android:name=".FullScreenGallery"
             android:exported="false" />
@@ -31,6 +38,18 @@
             android:name=".Contact"
             android:exported="false" />
             
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgramsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgramDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SubjectsActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

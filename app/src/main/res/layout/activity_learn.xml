@@ -22,6 +22,7 @@
             android:background="@android:color/white">
 
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_arrow_back"
@@ -40,6 +41,7 @@
 
         <!-- 2. Header Text -->
         <TextView
+            android:id="@+id/tvLearnIntro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -50,6 +52,7 @@
 
         <!-- 3. Grid Section Header -->
         <TextView
+            android:id="@+id/tvGroupsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -62,6 +65,7 @@
 
         <!-- Grid Layout for 4 Cards -->
         <GridLayout
+            android:id="@+id/gridGroups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
@@ -105,7 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Network & Infrastructure"
+                        android:text="Network &amp; Infrastructure"
                         android:textColor="#595D62"
                         android:textSize="12sp" />
 
@@ -295,6 +299,7 @@
             app:cardElevation="0dp">
 
             <LinearLayout
+                android:id="@+id/listOutcomes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

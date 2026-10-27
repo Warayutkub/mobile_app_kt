@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_round_14"
+        android:backgroundTint="@color/on_primary_12"
+        android:orientation="vertical"
+        android:padding="@dimen/space_md">
+
+        <TextView
+            style="@style/Text.H1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textColor="@color/white" />
+
+        <TextView
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หลักสูตร"
+            android:textColor="@color/on_primary_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_sm"
+        android:layout_weight="1"
+        android:background="@drawable/bg_round_14"
+        android:backgroundTint="@color/on_primary_12"
+        android:orientation="vertical"
+        android:padding="@dimen/space_md">
+
+        <TextView
+            style="@style/Text.H1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="@color/white" />
+
+        <TextView
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="แผนการเรียน"
+            android:textColor="@color/on_primary_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_sm"
+        android:layout_weight="1"
+        android:background="@drawable/bg_round_14"
+        android:backgroundTint="@color/on_primary_12"
+        android:orientation="vertical"
+        android:padding="@dimen/space_md">
+
+        <TextView
+            style="@style/Text.H1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="@color/white" />
+
+        <TextView
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="กลุ่มวิชาเลือก"
+            android:textColor="@color/on_primary_80" />
+    </LinearLayout>
+</LinearLayout>

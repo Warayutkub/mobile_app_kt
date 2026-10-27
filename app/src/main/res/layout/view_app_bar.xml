@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/appBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/app_bar_height"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/space_sm"
+    android:paddingEnd="@dimen/space_base">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="ย้อนกลับ"
+        android:src="@drawable/ic_ui_arrow_back"
+        app:tint="@color/text" />
+
+    <TextView
+        android:id="@+id/appBarTitle"
+        style="@style/Text.H2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_xs"
+        android:layout_weight="1"
+        android:maxLines="1"
+        android:ellipsize="end" />
+</LinearLayout>

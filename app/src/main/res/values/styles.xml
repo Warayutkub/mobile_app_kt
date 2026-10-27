@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+    <style name="Text.Display">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.H1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.H2">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.Title">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.Body">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Text.BodySm">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text.Label">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/muted</item>
+    </style>
+    <style name="Text.CaptionStrong">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Card">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">@dimen/radius_card</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="Chip" parent="Text.Label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/space_sm</item>
+        <item name="android:background">@drawable/bg_chip_default</item>
+        <item name="android:paddingStart">@dimen/space_base</item>
+        <item name="android:paddingEnd">@dimen/space_base</item>
+        <item name="android:paddingTop">@dimen/space_sm</item>
+        <item name="android:paddingBottom">@dimen/space_sm</item>
+    </style>
+
+    <style name="PrimaryButton" parent="Widget.Material3.Button">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">14dp</item>
+    </style>
+</resources>

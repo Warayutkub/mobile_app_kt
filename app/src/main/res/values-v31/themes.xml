@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.FitmApp" parent="Base.Theme.FitmApp">
+        <item name="android:windowSplashScreenBackground">@color/surface</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+    </style>
+</resources>

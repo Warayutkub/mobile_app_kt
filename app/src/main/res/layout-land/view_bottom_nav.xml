@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomMenu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface"
+    android:elevation="8dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_sm"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <LinearLayout
+        android:id="@+id/nav_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/nav_home_pill"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_round_full"
+            android:backgroundTint="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/nav_home_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_ui_home"
+                app:tint="@color/muted" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/nav_home_label"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_sm"
+            android:text="หน้าแรก" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_course"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/nav_course_pill"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_round_full"
+            android:backgroundTint="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/nav_course_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_ui_book"
+                app:tint="@color/muted" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/nav_course_label"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_sm"
+            android:text="หลักสูตร" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/nav_activity_pill"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_round_full"
+            android:backgroundTint="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/nav_activity_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_image"
+                app:tint="@color/muted" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/nav_activity_label"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_sm"
+            android:text="กิจกรรม" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_contact"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/nav_contact_pill"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_round_full"
+            android:backgroundTint="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/nav_contact_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_ui_phone"
+                app:tint="@color/muted" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/nav_contact_label"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_sm"
+            android:text="ติดต่อ" />
+    </LinearLayout>
+</LinearLayout>

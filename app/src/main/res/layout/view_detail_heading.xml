@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/detailDegree"
+            style="@style/Text.CaptionStrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_round_full"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:id="@+id/detailPlan"
+            style="@style/Text.CaptionStrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_round_full"
+            android:backgroundTint="@color/chip_neutral"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/muted" />
+
+        <TextView
+            android:id="@+id/detailRevision"
+            style="@style/Text.CaptionStrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_round_full"
+            android:backgroundTint="@color/chip_neutral"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/muted" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/detailName"
+        style="@style/Text.H1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm" />
+
+    <TextView
+        android:id="@+id/detailDegreeFull"
+        style="@style/Text.Caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm" />
+
+    <TextView
+        android:id="@+id/detailPlaceholderNote"
+        style="@style/Text.Caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_md"
+        android:background="@drawable/bg_round_12"
+        android:backgroundTint="@color/highlight_100"
+        android:padding="@dimen/space_md"
+        android:text="ข้อมูลหลักสูตรนี้เป็นตัวอย่างจากเว็บไซต์คณะ รอเติมจากเล่มหลักสูตร"
+        android:textColor="@color/highlight_text"
+        android:visibility="gone" />
+</LinearLayout>

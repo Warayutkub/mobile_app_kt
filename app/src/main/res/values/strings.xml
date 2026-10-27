@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">fitmApp</string>
+    <string name="subjects_source">ที่มา: เล่มหลักสูตร วท.บ. เทคโนโลยีสารสนเทศ (ปรับปรุง พ.ศ. 2567)</string>
 </resources>
