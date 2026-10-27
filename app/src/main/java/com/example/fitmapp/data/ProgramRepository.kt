@@ -4,6 +4,9 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_COURSE
+import com.example.fitmapp.data.DatabaseHelper.Companion.T_LEARN
+import com.example.fitmapp.data.DatabaseHelper.Companion.T_LEARN_GROUP
+import com.example.fitmapp.data.DatabaseHelper.Companion.T_LEARN_OUTCOME
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_PROGRAM
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_STRUCTURE
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_STUDY_PLAN
@@ -43,6 +46,7 @@ object ProgramRepository {
                             feePerTerm = c.int("fee_per_term"), semesters = c.int("semesters"),
                             tone = Tone.valueOf(c.str("tone")), revision = c.str("revision"),
                             structure = structure(db, id), studyPlans = studyPlans(db, id), terms = terms(db, id),
+                            learn = learn(db, id),
                             placeholder = c.int("placeholder") == 1
                         )
                     )
@@ -58,6 +62,22 @@ object ProgramRepository {
     private fun studyPlans(db: SQLiteDatabase, programId: String): List<StudyPlan> =
         db.rawQuery("SELECT name, detail FROM $T_STUDY_PLAN WHERE program_id = ? ORDER BY sort", arrayOf(programId)).use { c ->
             buildList { while (c.moveToNext()) add(StudyPlan(c.str("name"), c.str("detail"))) }
+        }
+
+    private fun learn(db: SQLiteDatabase, programId: String): LearnInfo? =
+        db.rawQuery("SELECT intro, groups_title FROM $T_LEARN WHERE program_id = ?", arrayOf(programId)).use { c ->
+            if (!c.moveToFirst()) null
+            else LearnInfo(c.str("intro"), c.str("groups_title"), learnGroups(db, programId), learnOutcomes(db, programId))
+        }
+
+    private fun learnGroups(db: SQLiteDatabase, programId: String): List<ElectiveGroup> =
+        db.rawQuery("SELECT name_th, name_en, courses FROM $T_LEARN_GROUP WHERE program_id = ? ORDER BY sort", arrayOf(programId)).use { c ->
+            buildList { while (c.moveToNext()) add(ElectiveGroup(c.str("name_th"), c.str("name_en"), c.str("courses"))) }
+        }
+
+    private fun learnOutcomes(db: SQLiteDatabase, programId: String): List<String> =
+        db.rawQuery("SELECT text FROM $T_LEARN_OUTCOME WHERE program_id = ? ORDER BY sort", arrayOf(programId)).use { c ->
+            buildList { while (c.moveToNext()) add(c.str("text")) }
         }
 
     private fun terms(db: SQLiteDatabase, programId: String): List<Term> =

@@ -41,6 +41,7 @@
 
         <!-- 2. Header Text -->
         <TextView
+            android:id="@+id/tvLearnIntro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -51,6 +52,7 @@
 
         <!-- 3. Grid Section Header -->
         <TextView
+            android:id="@+id/tvGroupsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -63,6 +65,7 @@
 
         <!-- Grid Layout for 4 Cards -->
         <GridLayout
+            android:id="@+id/gridGroups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
@@ -296,6 +299,7 @@
             app:cardElevation="0dp">
 
             <LinearLayout
+                android:id="@+id/listOutcomes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

@@ -22,11 +22,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
                 term_id INTEGER, sort INTEGER, code TEXT, name_th TEXT, name_en TEXT, credits INTEGER,
                 hours TEXT, english INTEGER, prerequisite TEXT, description_en TEXT, description_th TEXT)"""
         )
+        db.execSQL("CREATE TABLE $T_LEARN (program_id TEXT PRIMARY KEY, intro TEXT, groups_title TEXT)")
+        db.execSQL("CREATE TABLE $T_LEARN_GROUP (program_id TEXT, sort INTEGER, name_th TEXT, name_en TEXT, courses TEXT)")
+        db.execSQL("CREATE TABLE $T_LEARN_OUTCOME (program_id TEXT, sort INTEGER, text TEXT)")
         seed(db, ProgramData.programs)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        for (t in listOf(T_COURSE, T_TERM, T_STUDY_PLAN, T_STRUCTURE, T_PROGRAM)) db.execSQL("DROP TABLE IF EXISTS $t")
+        for (t in listOf(T_LEARN_OUTCOME, T_LEARN_GROUP, T_LEARN, T_COURSE, T_TERM, T_STUDY_PLAN, T_STRUCTURE, T_PROGRAM)) db.execSQL("DROP TABLE IF EXISTS $t")
         onCreate(db)
     }
 
@@ -51,6 +54,22 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
                         put("program_id", program.id); put("sort", i); put("name", plan.name); put("detail", plan.detail)
                     })
                 }
+                program.learn?.let { learn ->
+                    db.insert(T_LEARN, null, ContentValues().apply {
+                        put("program_id", program.id); put("intro", learn.intro); put("groups_title", learn.groupsTitle)
+                    })
+                    learn.groups.forEachIndexed { i, group ->
+                        db.insert(T_LEARN_GROUP, null, ContentValues().apply {
+                            put("program_id", program.id); put("sort", i); put("name_th", group.nameTh)
+                            put("name_en", group.nameEn); put("courses", group.courses)
+                        })
+                    }
+                    learn.outcomes.forEachIndexed { i, text ->
+                        db.insert(T_LEARN_OUTCOME, null, ContentValues().apply {
+                            put("program_id", program.id); put("sort", i); put("text", text)
+                        })
+                    }
+                }
                 program.terms.forEachIndexed { t, term ->
                     val termId = db.insert(T_TERM, null, ContentValues().apply {
                         put("program_id", program.id); put("sort", t); put("title", term.title)
@@ -74,12 +93,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
 
     companion object {
         const val DB_NAME = "fitm.db"
-        const val DB_VERSION = 1
+        const val DB_VERSION = 2
 
         const val T_PROGRAM = "program"
         const val T_STRUCTURE = "structure"
         const val T_STUDY_PLAN = "study_plan"
         const val T_TERM = "term"
         const val T_COURSE = "course"
+        const val T_LEARN = "learn"
+        const val T_LEARN_GROUP = "learn_group"
+        const val T_LEARN_OUTCOME = "learn_outcome"
     }
 }

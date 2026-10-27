@@ -41,6 +41,7 @@ data class Program(
     val structure: List<Pair<String, Int>> = emptyList(),
     val studyPlans: List<StudyPlan> = emptyList(),
     val terms: List<Term> = emptyList(),
+    val learn: LearnInfo? = null,
     val placeholder: Boolean = false
 )
 
@@ -351,7 +352,8 @@ object ProgramData {
                     StudyPlan("โครงการปกติ", "ฝึกงาน 240 ชม. + โครงงาน 2 ภาคเรียน"),
                     StudyPlan("สหกิจศึกษา", "ทำงานจริงในสถานประกอบการ 1 ภาคเรียน")
                 ),
-                terms = it67Terms
+                terms = it67Terms,
+                learn = LearnData.it4
             ),
             Program(
                 id = "bsc_it_transfer", degree = "วท.บ.", plan = "เทียบโอน 2 ปี", name = "เทคโนโลยีสารสนเทศ (เทียบโอน)",
@@ -360,7 +362,8 @@ object ProgramData {
                 tone = Tone.IT, revision = "หลักสูตรปรับปรุง 2567",
                 structure = listOf("หมวดวิชาศึกษาทั่วไป" to 12, "หมวดวิชาเฉพาะ" to 66, "หมวดวิชาเลือกเสรี" to 6),
                 studyPlans = listOf(StudyPlan("โครงการปกติ", "เรียน 4 ภาคเรียน เน้นธุรกิจดิจิทัล + โครงงาน 1 ภาคเรียน")),
-                terms = itTransferTerms
+                terms = itTransferTerms,
+                learn = LearnData.itTransfer
             ),
             Program(
                 id = "beng_ine_4y", degree = "วศ.บ.", plan = "4 ปี", name = "วิศวกรรมสารสนเทศและเครือข่าย",
@@ -372,7 +375,8 @@ object ProgramData {
                     StudyPlan("โครงการปกติ", "ฝึกงาน 240 ชม. + โครงงาน 2 ภาคเรียน"),
                     StudyPlan("สหกิจศึกษา", "สหกิจศึกษา 540 ชม. ในปีที่ 4")
                 ),
-                terms = ine4Terms
+                terms = ine4Terms,
+                learn = LearnData.ine4
             ),
             Program(
                 id = "beng_ine_transfer", degree = "วศ.บ.", plan = "เทียบโอน 3 ปี", name = "วิศวกรรมสารสนเทศและเครือข่าย (เทียบโอน)",
@@ -381,7 +385,8 @@ object ProgramData {
                 tone = Tone.INE, revision = "หลักสูตรปรับปรุง 2567",
                 structure = listOf("หมวดวิชาศึกษาทั่วไป" to 12, "หมวดวิชาเฉพาะ" to 84, "หมวดวิชาเลือกเสรี" to 6),
                 studyPlans = listOf(StudyPlan("โครงการปกติ", "ฝึกงาน 240 ชม. + โครงงานพิเศษ")),
-                terms = ineTransferTerms
+                terms = ineTransferTerms,
+                learn = LearnData.ineTransfer
             ),
             Program(
                 id = "bind_it_2y", degree = "อส.บ.", plan = "ต่อเนื่อง 2 ปี", name = "เทคโนโลยีสารสนเทศ (ต่อเนื่อง)",
@@ -390,7 +395,8 @@ object ProgramData {
                 tone = Tone.IND, revision = "หลักสูตรปรับปรุง 2566",
                 structure = listOf("หมวดวิชาศึกษาทั่วไป" to 18, "หมวดวิชาเฉพาะ" to 54, "หมวดวิชาเลือกเสรี" to 6),
                 studyPlans = listOf(StudyPlan("โครงการปกติ", "ฝึกปฏิบัติงาน 240 ชม. (ฤดูร้อนปี 1) + โครงงานพิเศษ")),
-                terms = indTerms
+                terms = indTerms,
+                learn = LearnData.ind
             )
         )
     }
