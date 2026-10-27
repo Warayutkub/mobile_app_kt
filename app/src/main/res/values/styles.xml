@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Typography จาก Figma: Kanit (หัวข้อ) · IBM Plex Sans Thai (เนื้อหา)
-         ตอนนี้ใช้ฟอนต์ระบบ ถ้าจะใช้ฟอนต์จริงให้เพิ่ม res/font แล้วใส่ android:fontFamily ใน style เหล่านี้ที่เดียว -->
     <style name="Text" parent="android:Widget.TextView">
         <item name="android:textColor">@color/text</item>
         <item name="android:lineSpacingMultiplier">1.15</item>
@@ -41,7 +39,6 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- การ์ดขาว มุม 16 เงาอ่อน -->
     <style name="Card">
         <item name="cardBackgroundColor">@color/surface</item>
         <item name="cardCornerRadius">@dimen/radius_card</item>
@@ -49,7 +46,6 @@
         <item name="cardUseCompatPadding">true</item>
     </style>
 
-    <!-- Chip กรองข้อมูล (สถานะเลือกตั้งใน code ด้วย bg_chip_selected) -->
     <style name="Chip" parent="Text.Label">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.fitmapp.data.Course
 
-/** หนึ่งวิชาใน ListView หน้า 05 (layout/item_subject.xml) */
 class SubjectAdapter(context: Context, courses: MutableList<Course>) :
     ArrayAdapter<Course>(context, R.layout.item_subject, courses) {
 

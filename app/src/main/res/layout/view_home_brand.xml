@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- โลโก้เล็ก + IT · FITM KMUTNB บนหัวหน้า Home -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <!-- โลโก้ FITM 30 ปีบนกรอบขาว (โลโก้สีน้ำเงิน วางบนพื้นน้ำเงินตรงๆ จะกลืน) -->
     <FrameLayout
         android:layout_width="60dp"
         android:layout_height="36dp"

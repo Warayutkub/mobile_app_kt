@@ -13,12 +13,10 @@ import com.example.fitmapp.ui.Screens
 import com.example.fitmapp.ui.Tab
 import com.example.fitmapp.ui.applySystemBars
 
-/** 03 Programs: รายการหลักสูตรทั้งหมด กรองตามประเภทปริญญาได้ */
 class ProgramsActivity : AppCompatActivity() {
 
     private lateinit var adapter: ProgramAdapter
 
-    /** ชิป → ประเภทปริญญา (null = ทั้งหมด) */
     private val chips = listOf(
         R.id.chipAll to null,
         R.id.chipIT to "วท.บ.",
@@ -35,7 +33,6 @@ class ProgramsActivity : AppCompatActivity() {
         BottomNav.setup(this, Tab.PROGRAMS)
 
         findViewById<TextView>(R.id.appBarTitle).text = "หลักสูตร"
-        // หน้าแท็บหลัก ไม่มีปุ่มกลับ: ชื่อหน้าชิดแนวเดียวกับเนื้อหา
         findViewById<View>(R.id.btnBack).visibility = View.GONE
         findViewById<View>(R.id.appBar).apply {
             setPaddingRelative(resources.getDimensionPixelSize(R.dimen.space_lg), paddingTop, paddingEnd, paddingBottom)
@@ -53,7 +50,6 @@ class ProgramsActivity : AppCompatActivity() {
         }
 
         for ((chipId, _) in chips) findViewById<TextView>(chipId).setOnClickListener { selectChip(chipId) }
-        // หมุนจอแล้วยังกรองแบบเดิม
         selectChip(savedInstanceState?.getInt(KEY_CHIP) ?: R.id.chipAll)
     }
 

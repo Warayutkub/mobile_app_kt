@@ -11,18 +11,12 @@ import androidx.core.view.WindowInsetsCompat
 import java.text.NumberFormat
 import java.util.Locale
 
-/** เปลี่ยนสีพื้นของ View ที่ใช้ shape bg_round_* (เช่นป้าย วท.บ. ตามสีหลักสูตร) */
 fun View.tintBackground(@ColorRes color: Int) {
     backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, color))
 }
 
-/** 19000 → "19,000" */
 fun Int.withComma(): String = NumberFormat.getIntegerInstance(Locale.US).format(this)
 
-/**
- * แอปวาดเต็มจอ (edge-to-edge): ให้ [topView] เว้นที่ status bar และ [root] เว้นที่ navigation bar
- * lightStatusBar = true → ไอคอน status bar สีเข้ม (หน้าพื้นขาว), false → สีขาว (หน้าพื้นน้ำเงิน)
- */
 fun AppCompatActivity.applySystemBars(root: View, topView: View, lightStatusBar: Boolean) {
     WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = lightStatusBar
     val topStart = topView.paddingTop
@@ -34,11 +28,6 @@ fun AppCompatActivity.applySystemBars(root: View, topView: View, lightStatusBar:
     }
 }
 
-/**
- * สำหรับหน้าที่ layout ไม่ได้เว้นที่ให้แถบระบบ: เว้นขอบทั้งหน้าเท่า status bar / navigation bar
- * (targetSdk 35+ แอปถูกวาดเต็มจอเสมอ ถ้าไม่เว้น แถบเมนูล่างจะซ้อนใต้แถบปัดกลับหน้าโฮม แล้วกดไม่ติด)
- * เรียกหลัง setContentView ไม่ต้องแก้ XML
- */
 fun AppCompatActivity.keepClearOfSystemBars() {
     ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
         val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

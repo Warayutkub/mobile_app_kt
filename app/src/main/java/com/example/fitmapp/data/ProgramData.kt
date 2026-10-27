@@ -2,7 +2,6 @@ package com.example.fitmapp.data
 
 import com.example.fitmapp.R
 
-/** สีประจำหลักสูตร (ตาม Figma: วท.บ. น้ำเงิน · วศ.บ. ม่วง · อส.บ. เขียว) */
 enum class Tone(val color: Int, val tint: Int) {
     IT(R.color.primary, R.color.primary_100),
     INE(R.color.ine, R.color.ine_100),
@@ -14,10 +13,8 @@ data class Course(
     val nameTh: String,
     val nameEn: String,
     val credits: Int,
-    /** "บรรยาย-ปฏิบัติ-ศึกษาเอง" เช่น "2-2-5" หรือข้อความ เช่น "240 ชั่วโมง" */
     val hours: String,
     val english: Boolean = false,
-    /** "None" = ไม่มี, หรือรหัสวิชาบังคับก่อน */
     val prerequisite: String = "",
     val descriptionEn: String = "",
     val descriptionTh: String = ""
@@ -40,22 +37,13 @@ data class Program(
     val feePerTerm: Int,
     val semesters: Int,
     val tone: Tone,
-    /** เช่น "หลักสูตรปรับปรุง 2567" (ว่าง = ไม่แสดงป้าย) */
     val revision: String = "",
-    /** หมวดวิชา to หน่วยกิต */
     val structure: List<Pair<String, Int>> = emptyList(),
     val studyPlans: List<StudyPlan> = emptyList(),
     val terms: List<Term> = emptyList(),
-    /** true = ยังเป็นข้อมูลตัวอย่างจากเว็บ รอเติมจากเล่มหลักสูตร */
     val placeholder: Boolean = false
 )
 
-/**
- * ข้อมูลเริ่มต้นที่ DatabaseHelper ใส่ลง SQLite ตอนเปิดแอปครั้งแรก — หน้าจอไม่อ่านไฟล์นี้ตรงๆ (อ่านผ่าน ProgramRepository)
- * ข้อมูลทุกหลักสูตรมาจากเล่มหลักสูตร (มคอ.2) ที่ลิงก์จาก fitm.kmutnb.ac.th/IT.html
- * คำอธิบายรายวิชา (descriptionEn) มีเฉพาะ วท.บ. IT 4 ปี
- * แก้ข้อมูลที่นี่แล้วต้องเพิ่ม DatabaseHelper.DB_VERSION ไม่งั้นเครื่องที่ติดตั้งแล้วจะยังเห็นข้อมูลเก่า
- */
 object ProgramData {
 
     const val APPLY_URL = "https://stdadmis2.kmutnb.ac.th/ApplyStart"
@@ -134,7 +122,6 @@ object ProgramData {
         ))
     )
 
-    // ---- ข้อมูลจากเล่มหลักสูตร (ดึงจาก PDF บน fitm.kmutnb.ac.th/IT.html) ----
     val itTransferTerms = listOf(
         Term("ปีที่ 1 · ภาคเรียนที่ 1", listOf(
             Course("060243102", "การโปรแกรมคอมพิวเตอร์", "Computer Programming", 3, "2-2-5"),

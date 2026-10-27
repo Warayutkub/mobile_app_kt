@@ -17,10 +17,6 @@ import com.example.fitmapp.R
 
 enum class Tab { HOME, PROGRAMS, GALLERY, CONTACT }
 
-/**
- * แถบเมนูล่าง (layout/view_bottom_nav.xml)
- * ใช้ในหน้าไหน: <include layout="@layout/view_bottom_nav" /> แล้วเรียก BottomNav.setup(this, Tab.X)
- */
 object BottomNav {
 
     private class Item(val tab: Tab, val root: Int, val pill: Int, val icon: Int, val label: Int)
@@ -53,10 +49,6 @@ object BottomNav {
         }
     }
 
-    /**
-     * แถบเมนูล่างที่วาดเองใน layout (หน้า Contact / Gallery ของเพื่อน): LinearLayout ที่มีลูก 4 ช่อง
-     * เรียงตาม หน้าแรก / หลักสูตร / กิจกรรม / ติดต่อ — ผูกการกดอย่างเดียว ไม่เปลี่ยนหน้าตา
-     */
     fun setupStatic(activity: Activity, container: ViewGroup, current: Tab) {
         val order = listOf(Tab.HOME, Tab.PROGRAMS, Tab.GALLERY, Tab.CONTACT)
         for (i in 0 until minOf(container.childCount, order.size)) {
@@ -75,7 +67,6 @@ object BottomNav {
                 Intent(activity, ProgramsActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
             )
-            // แท็บหลักเปิดซ้ำไม่ซ้อนกันในประวัติ (กด Back แล้วไม่ต้องย้อนหลายรอบ)
             Tab.GALLERY -> Screens.open(activity, Screens.GALLERY, flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
             Tab.CONTACT -> Screens.open(activity, Screens.CONTACT, flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
         }

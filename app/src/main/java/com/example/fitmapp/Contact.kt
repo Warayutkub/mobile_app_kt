@@ -26,7 +26,6 @@ class Contact : AppCompatActivity() {
         findViewById<View>(R.id.btnMap).setOnClickListener {
             open(Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + Uri.encode(MAP_QUERY))))
         }
-        // ACTION_DIAL เปิดหน้าโทรพร้อมเบอร์ ไม่ต้องขอสิทธิ์โทรออก
         findViewById<View>(R.id.btnCall).setOnClickListener { open(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$HOTLINE"))) }
         findViewById<View>(R.id.btnWebIT).setOnClickListener { Screens.openUrl(this, IT_SITE_URL) }
         findViewById<View>(R.id.btnWebFaculty).setOnClickListener { Screens.openUrl(this, FACULTY_URL) }

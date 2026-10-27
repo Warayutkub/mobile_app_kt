@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#80000000"
     android:padding="24dp">
-    <!-- 06 Subject Dialog แนวนอน: ใช้ UI เดิมจาก layout/subject_dialog.xml — ครอบ ScrollView ให้เลื่อนดูได้เมื่อจอเตี้ย -->
     <!-- ตัว Card Dialog กลางหน้าจอ -->
     <ScrollView
         android:layout_width="match_parent"

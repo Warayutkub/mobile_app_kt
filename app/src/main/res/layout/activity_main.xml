@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 01 Splash (Figma, แบบ A) — แนวตั้ง: พื้นขาว โลโก้ FITM 30 ปีตรงกลาง -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +8,6 @@
     android:background="@color/surface"
     tools:context=".MainActivity">
 
-    <!-- วงแหวนตกแต่ง ล้นขอบจอเล็กน้อยตาม Figma -->
     <View
         android:layout_width="300dp"
         android:layout_height="300dp"

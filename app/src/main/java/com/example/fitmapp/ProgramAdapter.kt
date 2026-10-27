@@ -10,7 +10,6 @@ import com.example.fitmapp.data.Program
 import com.example.fitmapp.ui.tintBackground
 import com.example.fitmapp.ui.withComma
 
-/** การ์ดหลักสูตรใน GridView หน้า 03 (layout/item_program.xml) */
 class ProgramAdapter(context: Context, programs: MutableList<Program>) :
     ArrayAdapter<Program>(context, R.layout.item_program, programs) {
 

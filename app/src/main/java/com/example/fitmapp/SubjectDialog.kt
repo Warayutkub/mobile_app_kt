@@ -9,13 +9,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.graphics.drawable.toDrawable
 import com.example.fitmapp.data.Course
 
-/**
- * 06 Subject Dialog — โค้ดของเพื่อน (เดิมอยู่ใน MainActivity ของโปรเจกต์ทดสอบ, showSubjectDetailDialog)
- * layout: res/layout/subject_dialog.xml ไม่ได้แก้หน้าตา เพิ่มแค่การใส่ข้อมูลวิชาที่กดจากหน้า 05
- */
 object SubjectDialog {
 
-    /** prerequisiteName = ชื่อวิชาบังคับก่อน (ถ้ามี), termTitle = ภาคเรียนที่วิชานี้อยู่ */
     fun show(activity: Activity, course: Course, termTitle: String, prerequisiteName: String?) {
         // 1. ดึง Layout XML ที่สร้างไว้มาใช้งาน (Inflate)
         val dialogView = LayoutInflater.from(activity).inflate(R.layout.subject_dialog, null)
@@ -26,12 +21,10 @@ object SubjectDialog {
         // 3. ปรับพื้นหลังรอบ Dialog ให้โปร่งใส (เพื่อให้ CardView แสดงมุมโค้งสวยงาม)
         dialog.window?.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
 
-        // ใส่ข้อมูลวิชา
         dialogView.findViewById<TextView>(R.id.tvSubjectCode).text = course.code
         dialogView.findViewById<TextView>(R.id.tvSubjectTitleTh).text = course.nameTh
         dialogView.findViewById<TextView>(R.id.tvSubjectTitleEn).text = course.nameEn
         dialogView.findViewById<TextView>(R.id.tvCredits).text = course.credits.toString()
-        // ชั่วโมงเรียนแบบ "บรรยาย-ปฏิบัติ-ศึกษาเอง" เช่น 2-2-5 (ฝึกงาน/สหกิจ/วิชาเลือก ไม่มี → "-")
         val hours = course.hours.split("-").takeIf { it.size == 3 }
         dialogView.findViewById<TextView>(R.id.tvLectureHours).text = hours?.get(0) ?: "-"
         dialogView.findViewById<TextView>(R.id.tvLabHours).text = hours?.get(1) ?: "-"

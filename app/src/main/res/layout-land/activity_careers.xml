@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F9FA">
-    <!-- Careers แนวนอน: ใช้ UI เดิมจาก layout/activity_careers.xml — การ์ดอาชีพ 5 คอลัมน์ -->
     <!-- Scrollable Main Content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"

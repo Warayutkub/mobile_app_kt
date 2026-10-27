@@ -18,7 +18,6 @@ import com.example.fitmapp.ui.Tab
 import com.example.fitmapp.ui.applySystemBars
 import com.example.fitmapp.ui.tintBackground
 
-/** 05 Subjects: รายวิชาของหลักสูตร เลือกภาคการศึกษาด้วย Spinner */
 class SubjectsActivity : AppCompatActivity() {
 
     private lateinit var program: Program
@@ -56,7 +55,6 @@ class SubjectsActivity : AppCompatActivity() {
         adapter = SubjectAdapter(this, mutableListOf())
         list.emptyView = findViewById(R.id.subjectEmpty)
 
-        // แนวตั้ง: บอกแหล่งที่มาท้ายรายการ (แนวนอนมีอยู่ในคอลัมน์ซ้ายแล้ว)
         if (findViewById<View>(R.id.subjectsSource) == null) {
             val source = layoutInflater.inflate(R.layout.item_term_dropdown, list, false) as TextView
             source.setTextAppearance(R.style.Text_Caption)
@@ -98,7 +96,6 @@ class SubjectsActivity : AppCompatActivity() {
             if (term == null) "ยังไม่มีข้อมูล" else "${term.courses.size} วิชา · ${term.totalCredits} หน่วยกิต"
     }
 
-    /** กดวิชาแล้วเปิดรายละเอียด (หน้า 06 Subject Dialog) */
     private fun showCourseDetail(course: Course) {
         val termTitle = program.terms.getOrNull(spinner.selectedItemPosition)?.title ?: ""
         SubjectDialog.show(this, course, termTitle, ProgramRepository.courseName(program.id, course.prerequisite))

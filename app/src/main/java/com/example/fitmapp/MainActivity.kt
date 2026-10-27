@@ -10,7 +10,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitmapp.ui.applySystemBars
 
-/** 01 Splash: แสดง 1.5 วินาที (หรือแตะจอ) แล้วไปหน้า Home */
 class MainActivity : AppCompatActivity() {
 
     private val handler = Handler(Looper.getMainLooper())
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     private fun openHome() {
         handler.removeCallbacks(goHome)
         startActivity(Intent(this, HomeActivity::class.java))
-        finish() // กด Back จาก Home แล้วไม่ย้อนกลับมา Splash
+        finish()
     }
 
     private companion object {

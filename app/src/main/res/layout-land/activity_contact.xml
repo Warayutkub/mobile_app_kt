@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F9FC">
-    <!-- Contact แนวนอน: ใช้ UI เดิมจาก layout/activity_contact.xml — แผนที่+ที่อยู่ซ้าย, ช่องทางติดต่อขวา -->
     <!-- ScrollView สำหรับรองรับหน้าจอทุกขนาด -->
     <ScrollView
         android:layout_width="0dp"

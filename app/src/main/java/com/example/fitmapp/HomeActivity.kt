@@ -18,10 +18,8 @@ import com.example.fitmapp.ui.Tab
 import com.example.fitmapp.ui.applySystemBars
 import com.example.fitmapp.ui.tintBackground
 
-/** 02 Home */
 class HomeActivity : AppCompatActivity() {
 
-    /** การ์ดหลักสูตรด้านบน: id หลักสูตร + ข้อความใต้ชื่อ (ตาม Figma) */
     private val features = listOf(
         "bsc_it_4y" to "4 ปี · เทียบโอน",
         "beng_ine_4y" to "4 ปี · เทียบโอน 3 ปี",

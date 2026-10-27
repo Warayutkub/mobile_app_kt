@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F1424">
-    <!-- Photo Viewer แนวนอน: ใช้ UI เดิมจาก layout/activity_full_screen_gallery.xml — รูปซ้าย 60%, รายละเอียดขวา -->
     <!-- 1. ปุ่มปิด (X) มุมซ้ายบน -->
     <ImageButton
         android:id="@+id/btnClose"

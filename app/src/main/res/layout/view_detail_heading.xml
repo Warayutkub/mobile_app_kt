@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- หัวข้อหน้ารายละเอียดหลักสูตร: ป้าย + ชื่อ + ชื่อปริญญา -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -58,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_sm" />
 
-    <!-- แสดงเฉพาะหลักสูตรที่ยังเป็นข้อมูลตัวอย่าง -->
     <TextView
         android:id="@+id/detailPlaceholderNote"
         style="@style/Text.Caption"

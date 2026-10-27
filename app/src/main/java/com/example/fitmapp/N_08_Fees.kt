@@ -19,7 +19,6 @@ class N_08_Fees : AppCompatActivity() {
     private lateinit var tvTotalFee: TextView
     private lateinit var chipGroupPrograms: ChipGroup
 
-    // Chip / แถวตาราง → id หลักสูตรในฐานข้อมูล (ค่าเทอม และจำนวนภาคเรียนอ่านจาก SQLite)
     private val chipProgram = mapOf(
         R.id.chipIt4 to "bsc_it_4y",
         R.id.chipItTransfer to "bsc_it_transfer",
@@ -56,7 +55,7 @@ class N_08_Fees : AppCompatActivity() {
                 updateFeeInfo(selectedId)
             }
         }
-        updateFeeInfo(chipGroupPrograms.checkedChipId) // ค่าเริ่มต้นจากฐานข้อมูล (หมุนจอแล้วยังเป็นชิปเดิม)
+        updateFeeInfo(chipGroupPrograms.checkedChipId)
     }
 
     private fun updateFeeInfo(chipId: Int) {

@@ -9,12 +9,6 @@ import com.example.fitmapp.data.DatabaseHelper.Companion.T_STRUCTURE
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_STUDY_PLAN
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_TERM
 
-/**
- * ทุกหน้าขอข้อมูลหลักสูตรผ่านตัวนี้ตัวเดียว — ข้อมูลอ่านจาก SQLite (DatabaseHelper)
- * อ่านทั้งหมดครั้งแรกที่เรียกแล้วเก็บไว้ในหน่วยความจำ (ข้อมูลไม่กี่ร้อยแถว และไม่มีการแก้ระหว่างใช้แอป)
- *
- * ต้องเรียก init(context) ก่อนใช้ — ทำไว้แล้วใน FitmApp.onCreate
- */
 object ProgramRepository {
 
     private lateinit var helper: DatabaseHelper
@@ -26,7 +20,6 @@ object ProgramRepository {
 
     fun programs(): List<Program> = cache ?: load(helper.readableDatabase).also { cache = it }
 
-    /** degree = "วท.บ." / "วศ.บ." / "อส.บ." หรือ null = ทั้งหมด */
     fun programs(degree: String?): List<Program> =
         if (degree == null) programs() else programs().filter { it.degree == degree }
 
@@ -34,11 +27,9 @@ object ProgramRepository {
 
     fun terms(programId: String?): List<Term> = program(programId).terms
 
-    /** ชื่อวิชาจากรหัส (ใช้แสดงวิชาบังคับก่อน) */
     fun courseName(programId: String?, code: String): String? =
         terms(programId).flatMap { it.courses }.firstOrNull { it.code == code }?.nameTh
 
-    // ---------- อ่านจากฐานข้อมูล ----------
 
     private fun load(db: SQLiteDatabase): List<Program> =
         db.rawQuery("SELECT * FROM $T_PROGRAM ORDER BY sort", null).use { c ->

@@ -5,14 +5,6 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-/**
- * ฐานข้อมูล SQLite ของแอป (fitm.db)
- *
- * เปิดแอปครั้งแรก: onCreate สร้างตารางแล้วใส่ข้อมูลเริ่มต้นจาก ProgramData
- * ถ้าแก้ข้อมูลใน ProgramData ให้เพิ่ม DB_VERSION ทีละ 1 → onUpgrade จะลบตารางแล้วสร้างใหม่พร้อมข้อมูลชุดใหม่
- *
- * ตาราง: program 1—n structure / study_plan / term, term 1—n course
- */
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -38,7 +30,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
         onCreate(db)
     }
 
-    /** ใส่ข้อมูลเริ่มต้นทั้งหมดใน transaction เดียว (เร็ว และถ้าพังกลางทางจะไม่เหลือข้อมูลครึ่งๆ) */
     private fun seed(db: SQLiteDatabase, programs: List<Program>) {
         db.beginTransaction()
         try {

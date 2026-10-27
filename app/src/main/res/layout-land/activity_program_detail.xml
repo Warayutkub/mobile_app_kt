@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 04 Program Detail — แนวนอน: ข้อมูลหลักซ้าย · ลิงก์ + ปุ่มสมัครขวา (เลื่อนแยกกัน) -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

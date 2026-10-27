@@ -17,12 +17,10 @@ import com.example.fitmapp.ui.applySystemBars
 import com.example.fitmapp.ui.tintBackground
 import com.example.fitmapp.ui.withComma
 
-/** 04 Program Detail: ข้อมูลหลักสูตรที่เลือก (รับ id ผ่าน Screens.EXTRA_PROGRAM_ID) */
 class ProgramDetailActivity : AppCompatActivity() {
 
     private lateinit var program: Program
 
-    /** สีแท่งโครงสร้างหลักสูตร เรียงตามหมวด (Figma: ฟ้า / น้ำเงิน / เหลือง) */
     private val structureColors = listOf(R.color.accent, R.color.primary, R.color.highlight)
     private val planIcons = listOf(R.drawable.ic_ui_code, R.drawable.ic_ui_briefcase)
 
@@ -77,7 +75,6 @@ class ProgramDetailActivity : AppCompatActivity() {
         box.findViewById<TextView>(R.id.factLabel).text = label
     }
 
-    /** แท่งสัดส่วน: ใช้ layout_weight = หน่วยกิตของแต่ละหมวด */
     private fun showStructure() {
         val card = findViewById<View>(R.id.structureCard)
         if (program.structure.isEmpty()) {

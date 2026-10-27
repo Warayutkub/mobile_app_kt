@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- หน้า Learn: วงกลมเลขข้อ "จบแล้วคุณจะทำได้" — เพื่อนไม่ได้ push ไฟล์นี้ขึ้น main
-     ค่าตาม Figma (09 Learn › Outcome › Num: วงกลม primary-100) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
     <solid android:color="#E1E8FF" />
 </shape>

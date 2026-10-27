@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- หน้า Careers: กรอบไอคอนบนแบนเนอร์น้ำเงิน — เพื่อนไม่ได้ push ไฟล์นี้ขึ้น main
-     ค่าตาม Figma (10 Careers › Banner › IconTile: ขาว 15% มุม 16) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="#26FFFFFF" />
     <corners android:radius="16dp" />

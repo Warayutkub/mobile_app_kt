@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- โลโก้ FITM 30 ปีบน splash ของระบบ (Android 12+): ระบบตัดไอคอนเป็นวงกลม ~160dp
-     จึงวางโลโก้ขนาดคงที่ไว้กลางพื้นที่ ไม่ให้ขอบโดนตัดหรือภาพยืด -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:width="136dp"

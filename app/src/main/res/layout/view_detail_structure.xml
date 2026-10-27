@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- การ์ดโครงสร้างหลักสูตร: แท่งสัดส่วนหน่วยกิต (layout_weight) + คำอธิบาย -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/structureCard"
@@ -26,7 +25,6 @@
             app:cardCornerRadius="7dp"
             app:cardElevation="0dp">
 
-            <!-- ช่องสีใส่ใน ProgramDetailActivity ตามหน่วยกิตแต่ละหมวด -->
             <LinearLayout
                 android:id="@+id/structureBar"
                 android:layout_width="match_parent"

@@ -6,26 +6,16 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 
-/**
- * เปิดหน้าอื่นของแอป
- *
- * หน้าของเพื่อนในกลุ่มเรียกด้วยชื่อคลาส (ค่าคงที่ข้างล่าง) — ถ้ามี Activity ชื่อนี้
- * และลงทะเบียนใน AndroidManifest แล้ว ปุ่มที่ลิงก์ไว้จะเปิดหน้านั้นได้เองโดยไม่ต้องแก้โค้ดตรงนี้
- * ถ้ายังไม่มี จะขึ้น Toast "หน้านี้กำลังพัฒนา"
- */
 object Screens {
 
-    /** ส่ง id หลักสูตรข้ามหน้า: intent.getStringExtra(Screens.EXTRA_PROGRAM_ID) */
     const val EXTRA_PROGRAM_ID = "program_id"
 
-    // ชื่อคลาสตามที่เพื่อนตั้งใน main
     const val ABOUT = "About"
     const val LEARN = "Learn"
     const val CAREERS = "Careers"
     const val GALLERY = "Gallery"
     const val CONTACT = "Contact"
 
-    // หน้า 07 / 08 (ไฟล์จากเพื่อน)
     const val QUALIFICATION = "N_07_Qualification"
     const val FEES = "N_08_Fees"
 
