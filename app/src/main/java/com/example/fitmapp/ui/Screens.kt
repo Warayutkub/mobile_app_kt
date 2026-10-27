@@ -9,7 +9,7 @@ import android.widget.Toast
 /**
  * เปิดหน้าอื่นของแอป
  *
- * หน้าของเพื่อนในกลุ่มเรียกด้วยชื่อคลาส (ค่าคงที่ข้างล่าง) — เมื่อเพื่อนสร้าง Activity ชื่อนี้
+ * หน้าของเพื่อนในกลุ่มเรียกด้วยชื่อคลาส (ค่าคงที่ข้างล่าง) — ถ้ามี Activity ชื่อนี้
  * และลงทะเบียนใน AndroidManifest แล้ว ปุ่มที่ลิงก์ไว้จะเปิดหน้านั้นได้เองโดยไม่ต้องแก้โค้ดตรงนี้
  * ถ้ายังไม่มี จะขึ้น Toast "หน้านี้กำลังพัฒนา"
  */
@@ -18,13 +18,16 @@ object Screens {
     /** ส่ง id หลักสูตรข้ามหน้า: intent.getStringExtra(Screens.EXTRA_PROGRAM_ID) */
     const val EXTRA_PROGRAM_ID = "program_id"
 
-    const val ABOUT = "AboutActivity"
-    const val QUALIFICATION = "QualificationActivity"
-    const val FEES = "FeesActivity"
-    const val LEARN = "LearnActivity"
-    const val CAREERS = "CareersActivity"
-    const val GALLERY = "GalleryActivity"
-    const val CONTACT = "ContactActivity"
+    // ชื่อคลาสตามที่เพื่อนตั้งใน main
+    const val ABOUT = "About"
+    const val LEARN = "Learn"
+    const val CAREERS = "Careers"
+    const val GALLERY = "Gallery"
+    const val CONTACT = "Contact"
+
+    // ยังไม่มีใน main — ถ้าเพื่อนตั้งชื่ออื่น แก้ตรงนี้ที่เดียว
+    const val QUALIFICATION = "Qualification"
+    const val FEES = "Fees"
 
     private const val PACKAGE = "com.example.fitmapp"
 

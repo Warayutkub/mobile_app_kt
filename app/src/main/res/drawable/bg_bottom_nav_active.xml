@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- สีพื้นหลังสีฟ้าอ่อน -->
+    <solid android:color="#E6E9FF" />
+    <!-- ความโค้งมนให้เป็นวงรีแบบเม็ดยา -->
+    <corners android:radius="16dp" />
+</shape>

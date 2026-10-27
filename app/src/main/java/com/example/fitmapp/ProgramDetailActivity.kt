@@ -24,7 +24,7 @@ class ProgramDetailActivity : AppCompatActivity() {
 
     /** สีแท่งโครงสร้างหลักสูตร เรียงตามหมวด (Figma: ฟ้า / น้ำเงิน / เหลือง) */
     private val structureColors = listOf(R.color.accent, R.color.primary, R.color.highlight)
-    private val planIcons = listOf(R.drawable.ic_code, R.drawable.ic_briefcase)
+    private val planIcons = listOf(R.drawable.ic_ui_code, R.drawable.ic_ui_briefcase)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,7 +125,7 @@ class ProgramDetailActivity : AppCompatActivity() {
 
     private fun showLinks() {
         val list = findViewById<LinearLayout>(R.id.linkList)
-        link(list, R.drawable.ic_book, "รายวิชา", "วิชาที่เรียนแยกตามปีและภาคเรียน") {
+        link(list, R.drawable.ic_ui_book, "รายวิชา", "วิชาที่เรียนแยกตามปีและภาคเรียน") {
             startActivity(Intent(this, SubjectsActivity::class.java).putExtra(Screens.EXTRA_PROGRAM_ID, program.id))
         }
         link(list, R.drawable.ic_cap, "คุณวุฒิผู้สมัคร", "ใครสมัครหลักสูตรนี้ได้บ้าง") {

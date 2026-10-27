@@ -71,7 +71,7 @@ class HomeActivity : AppCompatActivity() {
         tile(R.id.tileQualification, R.drawable.ic_cap, "คุณวุฒิผู้สมัคร") { Screens.open(this, Screens.QUALIFICATION) }
         tile(R.id.tileFees, R.drawable.ic_wallet, "ค่าใช้จ่าย") { Screens.open(this, Screens.FEES) }
         tile(R.id.tileLearn, R.drawable.ic_spark, "เรียนได้อะไร") { Screens.open(this, Screens.LEARN) }
-        tile(R.id.tileCareers, R.drawable.ic_briefcase, "จบแล้วทำอะไร") { Screens.open(this, Screens.CAREERS) }
+        tile(R.id.tileCareers, R.drawable.ic_ui_briefcase, "จบแล้วทำอะไร") { Screens.open(this, Screens.CAREERS) }
         tile(R.id.tileGallery, R.drawable.ic_image, "ภาพกิจกรรม") { Screens.open(this, Screens.GALLERY) }
     }
 

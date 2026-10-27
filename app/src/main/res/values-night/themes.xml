@@ -1,8 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- โหมดมืดใช้ธีมเดียวกับโหมดสว่าง (ดีไซน์มีแต่แบบสว่าง) -->
-    <style name="Base.Theme.FitmApp" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="android:windowBackground">@color/bg</item>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FitmApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
 </resources>

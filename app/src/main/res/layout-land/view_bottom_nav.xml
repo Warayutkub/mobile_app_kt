@@ -34,7 +34,7 @@
                 android:layout_height="22dp"
                 android:layout_gravity="center"
                 android:importantForAccessibility="no"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ic_ui_home"
                 app:tint="@color/muted" />
         </FrameLayout>
 
@@ -69,7 +69,7 @@
                 android:layout_height="22dp"
                 android:layout_gravity="center"
                 android:importantForAccessibility="no"
-                android:src="@drawable/ic_book"
+                android:src="@drawable/ic_ui_book"
                 app:tint="@color/muted" />
         </FrameLayout>
 
@@ -139,7 +139,7 @@
                 android:layout_height="22dp"
                 android:layout_gravity="center"
                 android:importantForAccessibility="no"
-                android:src="@drawable/ic_phone"
+                android:src="@drawable/ic_ui_phone"
                 app:tint="@color/muted" />
         </FrameLayout>
 
