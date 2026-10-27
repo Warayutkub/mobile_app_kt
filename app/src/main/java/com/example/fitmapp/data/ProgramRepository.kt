@@ -3,6 +3,7 @@ package com.example.fitmapp.data
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import com.example.fitmapp.data.DatabaseHelper.Companion.T_CAREER
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_COURSE
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_LEARN
 import com.example.fitmapp.data.DatabaseHelper.Companion.T_LEARN_GROUP
@@ -46,7 +47,7 @@ object ProgramRepository {
                             feePerTerm = c.int("fee_per_term"), semesters = c.int("semesters"),
                             tone = Tone.valueOf(c.str("tone")), revision = c.str("revision"),
                             structure = structure(db, id), studyPlans = studyPlans(db, id), terms = terms(db, id),
-                            learn = learn(db, id),
+                            learn = learn(db, id), careers = careers(db, id),
                             placeholder = c.int("placeholder") == 1
                         )
                     )
@@ -78,6 +79,11 @@ object ProgramRepository {
     private fun learnOutcomes(db: SQLiteDatabase, programId: String): List<String> =
         db.rawQuery("SELECT text FROM $T_LEARN_OUTCOME WHERE program_id = ? ORDER BY sort", arrayOf(programId)).use { c ->
             buildList { while (c.moveToNext()) add(c.str("text")) }
+        }
+
+    private fun careers(db: SQLiteDatabase, programId: String): List<Career> =
+        db.rawQuery("SELECT name, icon FROM $T_CAREER WHERE program_id = ? ORDER BY sort", arrayOf(programId)).use { c ->
+            buildList { while (c.moveToNext()) add(Career(c.str("name"), c.str("icon"))) }
         }
 
     private fun terms(db: SQLiteDatabase, programId: String): List<Term> =

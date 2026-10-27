@@ -103,7 +103,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="12dp"
-                                android:text="ปวส. พานิชยกรรม / บริหารธุรกิจ"
+                                android:text="ปวส. พาณิชยกรรม / บริหารธุรกิจ"
                                 android:textColor="#111827"
                                 android:textSize="16sp"/>
                             <RadioButton
