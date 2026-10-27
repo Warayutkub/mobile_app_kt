@@ -164,6 +164,19 @@
                     android:textColor="#2E7D32"
                     android:textSize="14sp"
                     app:drawableTint="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/tvCourse3"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@android:drawable/checkbox_on_background"
+                    android:drawablePadding="8dp"
+                    android:text="อส.บ. เทคโนโลยีสารสนเทศ (ต่อเนื่อง)"
+                    android:textColor="#2E7D32"
+                    android:textSize="14sp"
+                    app:drawableTint="#2E7D32" />
             </LinearLayout>
 
             <!-- Disclaimer Text -->

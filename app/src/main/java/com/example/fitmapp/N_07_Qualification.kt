@@ -8,6 +8,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitmapp.data.ProgramData
+import com.example.fitmapp.data.ProgramRepository
 import com.example.fitmapp.ui.Screens
 import com.example.fitmapp.ui.keepClearOfSystemBars
 
@@ -18,6 +19,7 @@ class N_07_Qualification : AppCompatActivity() {
     private lateinit var tvResultCount: TextView
     private lateinit var tvCourse1: TextView
     private lateinit var tvCourse2: TextView
+    private lateinit var tvCourse3: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class N_07_Qualification : AppCompatActivity() {
         tvResultCount = findViewById(R.id.tvResultCount)
         tvCourse1 = findViewById(R.id.tvCourse1)
         tvCourse2 = findViewById(R.id.tvCourse2)
+        tvCourse3 = findViewById(R.id.tvCourse3)
 
         radioGroupQualification.setOnCheckedChangeListener { _, checkedId ->
             layoutResultCard.visibility = View.VISIBLE
@@ -39,33 +42,23 @@ class N_07_Qualification : AppCompatActivity() {
     }
 
     private fun updateEligibleCourses(selectedRadioId: Int) {
-        when (selectedRadioId) {
-            R.id.radioSciMath -> {
-                tvResultCount.text = "สมัครได้ 2 หลักสูตร"
-                tvCourse1.text = "วท.บ. เทคโนโลยีสารสนเทศ (4 ปี)"
-                tvCourse1.visibility = View.VISIBLE
-                tvCourse2.text = "วศ.บ. วิศวกรรมสารสนเทศและเครือข่าย (4 ปี)"
-                tvCourse2.visibility = View.VISIBLE
-            }
-            R.id.radioOtherHighSchool -> {
-                tvResultCount.text = "สมัครได้ 1 หลักสูตร"
-                tvCourse1.text = "วท.บ. เทคโนโลยีสารสนเทศ (4 ปี)"
-                tvCourse1.visibility = View.VISIBLE
-                tvCourse2.visibility = View.GONE
-            }
-            R.id.radioVocational -> {
-                tvResultCount.text = "สมัครได้ 1 หลักสูตร"
-                tvCourse1.text = "วท.บ. เทคโนโลยีสารสนเทศ (4 ปี)"
-                tvCourse1.visibility = View.VISIBLE
-                tvCourse2.visibility = View.GONE
-            }
-            R.id.radioHighVocationalBiz, R.id.radioHighVocationalTech -> {
-                tvResultCount.text = "สมัครได้ 2 หลักสูตร"
-                tvCourse1.text = "วท.บ. เทคโนโลยีสารสนเทศ (เทียบโอน)"
-                tvCourse1.visibility = View.VISIBLE
-                tvCourse2.text = "วศ.บ. วิศวกรรมสารสนเทศและเครือข่าย (เทียบโอน)"
-                tvCourse2.visibility = View.VISIBLE
-            }
+        val programIds = when (selectedRadioId) {
+            R.id.radioSciMath, R.id.radioOtherHighSchool, R.id.radioVocational ->
+                listOf("bsc_it_4y", "beng_ine_4y")
+            R.id.radioHighVocationalBiz -> listOf("bsc_it_transfer", "beng_ine_transfer", "bind_it_2y")
+            R.id.radioHighVocationalTech -> listOf("beng_ine_transfer", "bind_it_2y")
+            else -> emptyList()
         }
+        tvResultCount.text = "สมัครได้ ${programIds.size} หลักสูตร"
+        listOf(tvCourse1, tvCourse2, tvCourse3).forEachIndexed { i, tv ->
+            val id = programIds.getOrNull(i)
+            tv.visibility = if (id == null) View.GONE else View.VISIBLE
+            if (id != null) tv.text = courseLabel(id)
+        }
+    }
+
+    private fun courseLabel(programId: String): String {
+        val p = ProgramRepository.program(programId)
+        return if (p.name.endsWith(")")) "${p.degree} ${p.name}" else "${p.degree} ${p.name} (${p.plan})"
     }
 }
