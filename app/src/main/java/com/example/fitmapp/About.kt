@@ -12,6 +12,7 @@ class About : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         keepClearOfSystemBars()
+        findViewById<android.view.View>(R.id.btnBack).setOnClickListener { finish() }
 
     }
 }

@@ -14,6 +14,7 @@ class Learn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn)
         keepClearOfSystemBars()
+        findViewById<android.view.View>(R.id.btnBack).setOnClickListener { finish() }
         val gotoCareers = findViewById<CardView>(R.id.gotoCareersBtn)
         gotoCareers.setOnClickListener {
             intent = Intent(this, Careers::class.java)
