@@ -97,6 +97,7 @@
             </androidx.cardview.widget.CardView>
             <!-- 4. Grid Section for 10 Careers -->
             <GridLayout
+                android:id="@+id/gridCareers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"

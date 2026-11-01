@@ -24,14 +24,22 @@ class Learn : AppCompatActivity() {
         setContentView(R.layout.activity_learn)
         keepClearOfSystemBars()
         findViewById<android.view.View>(R.id.btnBack).setOnClickListener { finish() }
+        val programId = intent.getStringExtra(Screens.EXTRA_PROGRAM_ID)
         val gotoCareers = findViewById<CardView>(R.id.gotoCareersBtn)
         gotoCareers.setOnClickListener {
-            intent = Intent(this, Careers::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Careers::class.java).putExtra(Screens.EXTRA_PROGRAM_ID, programId))
         }
 
-        val programId = intent.getStringExtra(Screens.EXTRA_PROGRAM_ID)
-        if (programId != null) ProgramRepository.program(programId).learn?.let { showLearn(it) }
+        if (programId != null) {
+            val program = ProgramRepository.program(programId)
+            program.learn?.let { showLearn(it) }
+            if (program.careers.isNotEmpty()) showCareerCount(gotoCareers, program.careers.size)
+        }
+    }
+
+    private fun showCareerCount(view: View, count: Int) {
+        if (view is TextView && view.text.contains("สายอาชีพ")) view.text = "ดู $count สายอาชีพหลังเรียนจบ"
+        if (view is ViewGroup) view.children.forEach { showCareerCount(it, count) }
     }
 
     private fun showLearn(learn: LearnInfo) {

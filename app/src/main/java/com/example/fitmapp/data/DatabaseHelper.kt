@@ -25,11 +25,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
         db.execSQL("CREATE TABLE $T_LEARN (program_id TEXT PRIMARY KEY, intro TEXT, groups_title TEXT)")
         db.execSQL("CREATE TABLE $T_LEARN_GROUP (program_id TEXT, sort INTEGER, name_th TEXT, name_en TEXT, courses TEXT)")
         db.execSQL("CREATE TABLE $T_LEARN_OUTCOME (program_id TEXT, sort INTEGER, text TEXT)")
+        db.execSQL("CREATE TABLE $T_CAREER (program_id TEXT, sort INTEGER, name TEXT, icon TEXT)")
         seed(db, ProgramData.programs)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        for (t in listOf(T_LEARN_OUTCOME, T_LEARN_GROUP, T_LEARN, T_COURSE, T_TERM, T_STUDY_PLAN, T_STRUCTURE, T_PROGRAM)) db.execSQL("DROP TABLE IF EXISTS $t")
+        for (t in listOf(T_CAREER, T_LEARN_OUTCOME, T_LEARN_GROUP, T_LEARN, T_COURSE, T_TERM, T_STUDY_PLAN, T_STRUCTURE, T_PROGRAM)) db.execSQL("DROP TABLE IF EXISTS $t")
         onCreate(db)
     }
 
@@ -70,6 +71,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
                         })
                     }
                 }
+                program.careers.forEachIndexed { i, career ->
+                    db.insert(T_CAREER, null, ContentValues().apply {
+                        put("program_id", program.id); put("sort", i); put("name", career.name); put("icon", career.icon)
+                    })
+                }
                 program.terms.forEachIndexed { t, term ->
                     val termId = db.insert(T_TERM, null, ContentValues().apply {
                         put("program_id", program.id); put("sort", t); put("title", term.title)
@@ -93,7 +99,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
 
     companion object {
         const val DB_NAME = "fitm.db"
-        const val DB_VERSION = 2
+        const val DB_VERSION = 4
 
         const val T_PROGRAM = "program"
         const val T_STRUCTURE = "structure"
@@ -103,5 +109,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DB_NAME, null
         const val T_LEARN = "learn"
         const val T_LEARN_GROUP = "learn_group"
         const val T_LEARN_OUTCOME = "learn_outcome"
+        const val T_CAREER = "career"
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CareerCardStyle">
+
+    <LinearLayout style="@style/CareerCardContentStyle">
+
+        <ImageView
+            android:id="@+id/careerIcon"
+            style="@style/CareerIconStyle"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/careerName"
+            style="@style/CareerTextStyle" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

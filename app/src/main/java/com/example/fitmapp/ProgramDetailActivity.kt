@@ -41,7 +41,7 @@ class ProgramDetailActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.appBarTitle).text = "รายละเอียดหลักสูตร"
         findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<View>(R.id.btnApply).setOnClickListener { Screens.openUrl(this, ProgramData.APPLY_URL) }
+        findViewById<View>(R.id.btnApply).setOnClickListener { Screens.openUrl(this, ProgramData.OPEN_HOUSE_URL) }
 
         showHeading()
         showFacts()
